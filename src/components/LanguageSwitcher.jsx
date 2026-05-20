@@ -62,7 +62,6 @@ export default function LanguageSwitcher({ dark = false }) {
               }`}
             >
               <span className="font-medium">{lang.label}</span>
-              <span className="text-gray-400 text-xs ml-auto">{lang.name}</span>
             </button>
           ))}
         </div>

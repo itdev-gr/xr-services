@@ -94,32 +94,9 @@ export default function Company() {
             <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
               {t('nav.company')}
             </h1>
-            <p className="text-white/60 text-lg max-w-xl">
-              Γνωρίστε την XR Services — ποιοι είμαστε, τι πιστεύουμε και πού πηγαίνουμε.
-            </p>
           </div>
         </div>
 
-        {/* Quick nav anchors */}
-        <div className="bg-white border-b border-gray-100 sticky top-0 z-30 overflow-x-auto">
-          <div className="container-xl">
-            <div className="flex items-center gap-1 py-3 min-w-max">
-              {SECTIONS.map(({ id }) => (
-                <a
-                  key={id}
-                  href={`#${id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }}
-                  className="px-4 py-1.5 text-sm font-medium text-gray-600 hover:text-[#c8102e] hover:bg-red-50 rounded-lg transition-colors whitespace-nowrap"
-                >
-                  {t(`nav.companyItems.${id}`)}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* Sections */}
         <div className="py-16 bg-gray-50/50">
