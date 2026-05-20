@@ -346,9 +346,8 @@ export default function Header() {
           <div className="flex items-center gap-3 flex-shrink-0 ml-auto z-10">
             <LanguageSwitcher />
             <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); handleNavClick('/contact', true); }}
-              className="hidden md:inline-flex items-center gap-2 bg-[#c8102e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#a00d24] transition-colors duration-200"
+              href="tel:2103421331"
+              className="hidden md:inline-flex items-center gap-2 bg-[#c8102e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#a00d24] transition-colors duration-200 uppercase tracking-wide"
             >
               {t('hero.cta')}
             </a>
