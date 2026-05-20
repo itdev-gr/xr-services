@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "home": "Home",
+    "company": "Azienda",
+    "services": "Servizi",
+    "articles": "Notizie",
+    "contact": "Contatti",
+    "servicesItems": {
+      "financial": "Servizi Finanziari",
+      "seminars": "Seminari",
+      "payroll": "Elaborazione Buste Paga",
+      "special": "Soluzioni Speciali"
+    },
+    "companyItems": {
+      "vision": "La Nostra Visione",
+      "values": "I Nostri Valori",
+      "history": "La Nostra Storia",
+      "people": "Le Nostre Persone",
+      "careers": "Carriere",
+      "financials": "Dati Finanziari",
+      "network": "Rete Allinial Global"
+    }
+  },
+  "about": {
+    "tagline": "Chi siamo",
+    "title": "XR Services",
+    "p1": "XR Services è stata fondata nel 2000 ed è diventata uno dei più affidabili consulenti contabili e fiscali in Grecia, servendo centinaia di aziende.",
+    "p2": "Con un team esperto di professionisti specializzati, forniamo servizi di alta qualità su misura per ogni azienda.",
+    "cta": "Scopri di più",
+    "whyTagline": "Perché sceglierci",
+    "whyTitle": "Perché Sceglierci",
+    "why": {
+      "experience": { "title": "Esperienza & Competenza", "desc": "Conosciamo il settore da oltre 25 anni, fornendo servizi di alta qualità ai nostri clienti." },
+      "consistency": { "title": "Coerenza & Efficacia", "desc": "Il nostro impegno è la coerenza e l'efficacia per garantire ai clienti un futuro migliore." },
+      "transparency": { "title": "Trasparenza & Responsabilità", "desc": "La nostra filosofia si basa sui valori della trasparenza e della responsabilità." },
+      "quality": { "title": "Standard di Qualità", "desc": "Forniamo servizi di alta qualità certificati garantendo la completa soddisfazione del cliente." }
+    }
+  },
+  "hero": {
+    "tagline": "I Vostri Consulenti di Fiducia dal 2000",
+    "title": "Servizi Contabili e Fiscali",
+    "subtitle": "Gestiamo la contabilità e la fiscalità della vostra azienda con precisione, trasparenza e metodi moderni.",
+    "cta": "Contattateci",
+    "ctaSecondary": "Scopri i Servizi"
+  },
+  "quote": {
+    "text": "Il successo di ogni azienda inizia con le decisioni giuste. Siamo qui per darvi gli strumenti di cui avete bisogno.",
+    "author": "XR Services — Consulenti di Fiducia"
+  },
+  "services": {
+    "title": "Servizi",
+    "subtitle": "Soluzioni complete per ogni esigenza aziendale",
+    "items": {
+      "accounting": { "title": "Servizi Contabili", "desc": "Contabilità completa, conto economico mensile e bilanci." },
+      "tax": { "title": "Servizi Fiscali", "desc": "Pianificazione fiscale, dichiarazioni IVA e rappresentanza fiscale." },
+      "consulting": { "title": "Servizi di Consulenza", "desc": "Sviluppo strategico, pianificazione aziendale e analisi finanziaria." },
+      "payroll": { "title": "Buste Paga", "desc": "Gestione completa delle paghe, previdenza sociale e diritto del lavoro." },
+      "audit": { "title": "Verifiche Fiscali", "desc": "Supporto nelle verifiche fiscali e rappresentanza dinanzi alle autorità." },
+      "monitoring": { "title": "Monitoraggio Finanziario", "desc": "Monitoraggio regolare dei dati finanziari e report di gestione." },
+      "startup": { "title": "Avvio d'Impresa", "desc": "Costituzione di società, scelta della forma giuridica e licenze." },
+      "corporate": { "title": "Supporto Societario", "desc": "Modifiche legali, fusioni, trasformazioni societarie e liquidazioni." }
+    }
+  },
+  "specialSolutions": {
+    "title": "Soluzioni Speciali",
+    "subtitle": "Servizi specializzati su misura per il vostro settore",
+    "items": {
+      "hotels": { "title": "Hotel", "desc": "Gestione contabile per strutture alberghiere, IVA turismo e conformità." },
+      "manufacturing": { "title": "Manifattura / Industria", "desc": "Costo di produzione, magazzino e gestione della catena di fornitura." },
+      "education": { "title": "Istituti Educativi", "desc": "Contabilità per istituti scolastici, donazioni e sovvenzioni." },
+      "construction": { "title": "Costruzioni / Tecnico", "desc": "Progetti tecnici, permessi edilizi e IVA costruzioni." },
+      "food": { "title": "Ristorazione", "desc": "Ristoranti, caffè, catering — contabilità completa del settore F&B." },
+      "commerce": { "title": "Attività Commerciali", "desc": "Commercio al dettaglio e all'ingrosso, gestione delle scorte e soluzioni B2B." }
+    }
+  },
+  "articles": {
+    "title": "Notizie",
+    "subtitle": "Rimanete informati sugli ultimi sviluppi in materia fiscale e contabile",
+    "readMore": "Leggi di più",
+    "items": {
+      "article1": { "date": "15 Maggio 2026", "title": "Modifiche all'Imposta sul Reddito 2026", "excerpt": "Le nuove norme per l'anno fiscale 2026 riguardano notevolmente le imprese. Scoprite cosa cambia e come prepararsi." },
+      "article2": { "date": "8 Maggio 2026", "title": "myDATA: Tutto Quello che Devi Sapere", "excerpt": "Guida completa alla trasmissione elettronica dei dati all'autorità fiscale." },
+      "article3": { "date": "1 Maggio 2026", "title": "Trasformazione Digitale nella Contabilità", "excerpt": "Come le tecnologie moderne stanno cambiando il modo di lavorare dei contabili." }
+    }
+  },
+  "newsletter": {
+    "title": "Restate Informati",
+    "subtitle": "Iscrivetevi alla nostra newsletter e ricevete le ultime notizie fiscali",
+    "placeholder": "Il vostro indirizzo email",
+    "consent": "Acconsento al trattamento dei miei dati personali in conformità con la politica sulla privacy",
+    "submit": "Iscriviti",
+    "success": "Grazie! Vi siete iscritti con successo.",
+    "errorEmail": "Inserite un'email valida",
+    "errorConsent": "È richiesto il vostro consenso"
+  },
+  "social": {
+    "title": "Seguite XR Services",
+    "subtitle": "sui social media per notizie, consigli e aggiornamenti"
+  },
+  "contact": {
+    "title": "Contattateci",
+    "subtitle": "Siamo qui per rispondere a tutte le vostre domande",
+    "phone": "Telefono",
+    "email": "Email",
+    "address": "Indirizzo",
+    "addressValue": "Keiriadon 25 - 27, Kato Petralona, Atene",
+    "form": {
+      "name": "Nome e Cognome",
+      "email": "Email",
+      "phone": "Telefono",
+      "message": "Messaggio",
+      "submit": "Invia Messaggio",
+      "success": "Il vostro messaggio è stato inviato con successo!",
+      "error": "Qualcosa è andato storto. Riprovate."
+    }
+  },
+  "footer": {
+    "contact": "Informazioni di Contatto",
+    "menu": "Menu",
+    "servicesTitle": "Servizi",
+    "newsletter": "Newsletter",
+    "rights": "© 2026 XR Services. Tutti i diritti riservati.",
+    "privacy": "Privacy Policy",
+    "terms": "Termini di Utilizzo"
+  },
+  "seo": {
+    "title": "XR Services | Servizi Contabili e Fiscali",
+    "description": "XR Services fornisce servizi contabili, fiscali e di consulenza per aziende e professionisti."
+  }
+}

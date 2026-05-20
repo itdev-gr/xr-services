@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "company": "Entreprise",
+    "services": "Services",
+    "articles": "Actualités",
+    "contact": "Contact",
+    "servicesItems": {
+      "financial": "Services Financiers",
+      "seminars": "Séminaires",
+      "payroll": "Traitement des Salaires",
+      "special": "Solutions Spéciales"
+    },
+    "companyItems": {
+      "vision": "Notre Vision",
+      "values": "Nos Valeurs",
+      "history": "Notre Histoire",
+      "people": "Nos Collaborateurs",
+      "careers": "Carrières",
+      "financials": "Données Financières",
+      "network": "Réseau Allinial Global"
+    }
+  },
+  "about": {
+    "tagline": "Notre entreprise",
+    "title": "XR Services",
+    "p1": "XR Services a été fondée en 2000 et est devenue l'un des cabinets comptables et fiscaux les plus fiables en Grèce, servant des centaines d'entreprises.",
+    "p2": "Avec une équipe expérimentée de professionnels spécialisés, nous fournissons des services de haute qualité adaptés aux besoins de chaque entreprise.",
+    "cta": "En savoir plus",
+    "whyTagline": "Raisons de nous choisir",
+    "whyTitle": "Pourquoi nous choisir",
+    "why": {
+      "experience": { "title": "Expérience & Expertise", "desc": "Nous maîtrisons notre domaine depuis plus de 25 ans, en fournissant des services de haute qualité." },
+      "consistency": { "title": "Cohérence & Efficacité", "desc": "Notre engagement est la cohérence et l'efficacité pour un avenir meilleur pour nos clients." },
+      "transparency": { "title": "Transparence & Responsabilité", "desc": "Notre philosophie repose sur les valeurs de transparence et de responsabilité." },
+      "quality": { "title": "Normes de Qualité", "desc": "Nous fournissons des services certifiés de haute qualité garantissant la satisfaction totale." }
+    }
+  },
+  "hero": {
+    "tagline": "Vos Conseillers de Confiance depuis 2000",
+    "title": "Services Comptables & Fiscaux",
+    "subtitle": "Nous gérons la comptabilité et la fiscalité de votre entreprise avec précision, transparence et méthodes modernes.",
+    "cta": "Contactez-nous",
+    "ctaSecondary": "Voir nos Services"
+  },
+  "quote": {
+    "text": "Le succès de chaque entreprise commence par les bonnes décisions. Nous sommes là pour vous donner les outils dont vous avez besoin.",
+    "author": "XR Services — Conseillers de Confiance"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Des solutions complètes pour chaque besoin de votre entreprise",
+    "items": {
+      "accounting": { "title": "Services Comptables", "desc": "Comptabilité complète, compte de résultat mensuel et bilans." },
+      "tax": { "title": "Services Fiscaux", "desc": "Planification fiscale, déclarations de TVA et représentation fiscale." },
+      "consulting": { "title": "Services de Conseil", "desc": "Développement stratégique, planification d'entreprise et analyse financière." },
+      "payroll": { "title": "Paie", "desc": "Gestion complète de la paie, sécurité sociale et droit du travail." },
+      "audit": { "title": "Contrôles Fiscaux", "desc": "Assistance aux contrôles fiscaux et représentation auprès des autorités." },
+      "monitoring": { "title": "Surveillance Financière", "desc": "Surveillance régulière des données financières et rapports de gestion." },
+      "startup": { "title": "Création d'Entreprise", "desc": "Constitution de société, choix de la forme juridique et licences." },
+      "corporate": { "title": "Soutien Corporatif", "desc": "Modifications légales, fusions, transformations et liquidations." }
+    }
+  },
+  "specialSolutions": {
+    "title": "Solutions Spéciales",
+    "subtitle": "Services spécialisés adaptés à votre secteur",
+    "items": {
+      "hotels": { "title": "Hôtels", "desc": "Gestion comptable pour les unités hôtelières, TVA tourisme et conformité." },
+      "manufacturing": { "title": "Manufacture / Industrie", "desc": "Calcul des coûts de production, stocks et gestion de la chaîne d'approvisionnement." },
+      "education": { "title": "Établissements d'Enseignement", "desc": "Comptabilité pour institutions éducatives, dons et subventions." },
+      "construction": { "title": "Construction / Technique", "desc": "Projets techniques, permis de construire et TVA construction." },
+      "food": { "title": "Restauration", "desc": "Restaurants, cafés, traiteurs — comptabilité F&B complète." },
+      "commerce": { "title": "Entreprises Commerciales", "desc": "Commerce de détail et de gros, gestion des stocks et solutions B2B." }
+    }
+  },
+  "articles": {
+    "title": "Actualités",
+    "subtitle": "Restez informé des dernières évolutions en fiscalité et comptabilité",
+    "readMore": "Lire la suite",
+    "items": {
+      "article1": { "date": "15 Mai 2026", "title": "Modifications de l'Impôt sur le Revenu 2026", "excerpt": "Les nouvelles réglementations pour l'année fiscale 2026 affectent considérablement les entreprises." },
+      "article2": { "date": "8 Mai 2026", "title": "myDATA : Tout ce que vous devez savoir", "excerpt": "Guide complet sur la transmission électronique des données à l'autorité fiscale." },
+      "article3": { "date": "1 Mai 2026", "title": "Transformation Numérique en Comptabilité", "excerpt": "Comment les technologies modernes changent la façon de travailler des comptables." }
+    }
+  },
+  "newsletter": {
+    "title": "Restez Informé",
+    "subtitle": "Abonnez-vous à notre newsletter et recevez les dernières actualités fiscales",
+    "placeholder": "Votre adresse email",
+    "consent": "J'accepte le traitement de mes données personnelles conformément à la politique de confidentialité",
+    "submit": "S'abonner",
+    "success": "Merci ! Vous vous êtes abonné avec succès.",
+    "errorEmail": "Veuillez entrer un email valide",
+    "errorConsent": "Votre consentement est requis"
+  },
+  "social": {
+    "title": "Suivez XR Services",
+    "subtitle": "sur les réseaux sociaux pour des nouvelles, conseils et mises à jour"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes ici pour répondre à toutes vos questions",
+    "phone": "Téléphone",
+    "email": "Email",
+    "address": "Adresse",
+    "addressValue": "Keiriadon 25 - 27, Kato Petralona, Athènes",
+    "form": {
+      "name": "Nom Complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "message": "Message",
+      "submit": "Envoyer le Message",
+      "success": "Votre message a été envoyé avec succès !",
+      "error": "Quelque chose s'est mal passé. Veuillez réessayer."
+    }
+  },
+  "footer": {
+    "contact": "Informations de Contact",
+    "menu": "Menu",
+    "servicesTitle": "Services",
+    "newsletter": "Newsletter",
+    "rights": "© 2026 XR Services. Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
+  },
+  "seo": {
+    "title": "XR Services | Services Comptables et Fiscaux",
+    "description": "XR Services fournit des services comptables, fiscaux et de conseil aux entreprises et professionnels."
+  }
+}

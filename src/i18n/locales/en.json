@@ -1,0 +1,184 @@
+{
+  "nav": {
+    "home": "Home",
+    "company": "Company",
+    "services": "Services",
+    "articles": "News",
+    "contact": "Contact",
+    "servicesItems": {
+      "financial": "Financial Services",
+      "seminars": "Seminars",
+      "payroll": "Payroll Processing",
+      "special": "Special Solutions"
+    },
+    "companyItems": {
+      "vision": "Our Vision",
+      "values": "Our Values",
+      "history": "Our History",
+      "people": "Our People",
+      "careers": "Careers",
+      "financials": "Financial Data",
+      "network": "Allinial Global Network"
+    }
+  },
+  "about": {
+    "tagline": "About us",
+    "title": "XR Services",
+    "p1": "XR Services was founded in 2000 and has since become one of the most trusted accounting and tax consulting firms in Greece, serving hundreds of businesses across all sectors.",
+    "p2": "With an experienced team of specialized professionals, we provide high-quality accounting, tax and consulting services tailored to the needs of every business.",
+    "cta": "Learn More",
+    "whyTagline": "Reasons to choose us",
+    "whyTitle": "Why Choose Us",
+    "why": {
+      "experience": { "title": "Experience & Expertise", "desc": "We have been mastering our field for over 25 years, providing high-quality services to our clients." },
+      "consistency": { "title": "Consistency & Effectiveness", "desc": "Our commitment is consistency and effectiveness so our clients achieve a better and more profitable future." },
+      "transparency": { "title": "Transparency & Accountability", "desc": "Our philosophy is built on transparency and accountability — the core pillars of our client service." },
+      "quality": { "title": "Quality Standards", "desc": "We deliver high-quality certified services ensuring complete client satisfaction." }
+    }
+  },
+  "hero": {
+    "tagline": "Your Trusted Advisors Since 2000",
+    "title": "Accounting & Tax Services",
+    "subtitle": "We handle the accounting and tax management of your business with precision, transparency and modern methods.",
+    "cta": "Contact Us",
+    "ctaSecondary": "View Our Services"
+  },
+  "quote": {
+    "text": "The success of every business starts with the right decisions. We are here to give you the tools you need.",
+    "author": "XR Services — Trusted Advisors"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Comprehensive solutions for every business need",
+    "items": {
+      "accounting": {
+        "title": "Accounting Services",
+        "desc": "Full bookkeeping, monthly profit & loss statements and balance sheets."
+      },
+      "tax": {
+        "title": "Tax Services",
+        "desc": "Tax planning, VAT returns, and tax authority representation."
+      },
+      "consulting": {
+        "title": "Consulting Services",
+        "desc": "Strategic development, business planning and financial analysis."
+      },
+      "payroll": {
+        "title": "Payroll",
+        "desc": "Complete payroll management, social security and labor law compliance."
+      },
+      "audit": {
+        "title": "Tax Audits",
+        "desc": "Support in tax audits and representation before authorities."
+      },
+      "monitoring": {
+        "title": "Financial Monitoring",
+        "desc": "Regular monitoring of financial data and management reports."
+      },
+      "startup": {
+        "title": "Business Startup",
+        "desc": "Company formation, legal structure selection, registration and licensing."
+      },
+      "corporate": {
+        "title": "Corporate Support",
+        "desc": "Legal changes, mergers, corporate transformations and liquidations."
+      }
+    }
+  },
+  "specialSolutions": {
+    "title": "Special Solutions",
+    "subtitle": "Specialized services tailored to your industry",
+    "items": {
+      "hotels": {
+        "title": "Hotels",
+        "desc": "Accounting management for hotel units, tourism VAT and compliance."
+      },
+      "manufacturing": {
+        "title": "Manufacturing / Industry",
+        "desc": "Production costing, inventory and supply chain management."
+      },
+      "education": {
+        "title": "Educational Institutions",
+        "desc": "Accounting for educational institutions, donations and grants."
+      },
+      "construction": {
+        "title": "Construction / Technical",
+        "desc": "Technical projects, counterpart agreements, construction VAT and permits."
+      },
+      "food": {
+        "title": "Food & Beverage",
+        "desc": "Restaurants, cafes, catering — full F&B accounting and compliance."
+      },
+      "commerce": {
+        "title": "Commercial Businesses",
+        "desc": "Retail & wholesale trade, inventory management and B2B solutions."
+      }
+    }
+  },
+  "articles": {
+    "title": "News",
+    "subtitle": "Stay informed about the latest developments in taxation and accounting",
+    "readMore": "Read More",
+    "items": {
+      "article1": {
+        "date": "May 15, 2026",
+        "title": "Income Tax Changes 2026",
+        "excerpt": "The new regulations for the 2026 tax year significantly affect businesses. Discover what is changing and how to prepare."
+      },
+      "article2": {
+        "date": "May 8, 2026",
+        "title": "myDATA: Everything You Need to Know",
+        "excerpt": "Complete guide to electronic data transmission to the tax authority. Obligations, deadlines and practical advice."
+      },
+      "article3": {
+        "date": "May 1, 2026",
+        "title": "Digital Transformation in Accounting",
+        "excerpt": "How modern technologies are changing the way accountants work and why you should embrace the change."
+      }
+    }
+  },
+  "newsletter": {
+    "title": "Stay Informed",
+    "subtitle": "Subscribe to our newsletter and receive the latest tax news and changes",
+    "placeholder": "Your email address",
+    "consent": "I agree to the processing of my personal data in accordance with the privacy policy",
+    "submit": "Subscribe",
+    "success": "Thank you! You have successfully subscribed.",
+    "errorEmail": "Please enter a valid email",
+    "errorConsent": "Your consent is required"
+  },
+  "social": {
+    "title": "Follow XR Services",
+    "subtitle": "on social media for news, tips and updates"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to answer any of your questions",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "addressValue": "Keiriadon 25 - 27, Kato Petralona",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Your message was sent successfully!",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "contact": "Contact Information",
+    "menu": "Menu",
+    "servicesTitle": "Services",
+    "newsletter": "Newsletter",
+    "rights": "© 2026 XR Services. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "seo": {
+    "title": "XR Services | Accounting & Tax Services",
+    "description": "XR Services provides accounting, tax and consulting services for businesses and professionals."
+  }
+}

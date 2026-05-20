@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "company": "Unternehmen",
+    "services": "Leistungen",
+    "articles": "Neuigkeiten",
+    "contact": "Kontakt",
+    "servicesItems": {
+      "financial": "Finanzdienstleistungen",
+      "seminars": "Seminare",
+      "payroll": "Lohnabrechnung",
+      "special": "Spezielle Lösungen"
+    },
+    "companyItems": {
+      "vision": "Unsere Vision",
+      "values": "Unsere Werte",
+      "history": "Unsere Geschichte",
+      "people": "Unsere Mitarbeiter",
+      "careers": "Karriere",
+      "financials": "Finanzdaten",
+      "network": "Allinial Global Netzwerk"
+    }
+  },
+  "about": {
+    "tagline": "Über uns",
+    "title": "XR Services",
+    "p1": "XR Services wurde im Jahr 2000 gegründet und ist seitdem einer der vertrauenswürdigsten Buchhaltungs- und Steuerberater in Griechenland.",
+    "p2": "Mit einem erfahrenen Team spezialisierter Fachleute bieten wir hochwertige Dienstleistungen für jedes Unternehmen.",
+    "cta": "Mehr erfahren",
+    "whyTagline": "Gründe uns zu wählen",
+    "whyTitle": "Warum uns wählen",
+    "why": {
+      "experience": { "title": "Erfahrung & Expertise", "desc": "Wir beherrschen unser Fachgebiet seit über 25 Jahren und bieten hochwertige Dienstleistungen." },
+      "consistency": { "title": "Konsistenz & Effektivität", "desc": "Unser Engagement ist Konsistenz und Effektivität für eine bessere Zukunft unserer Kunden." },
+      "transparency": { "title": "Transparenz & Verantwortung", "desc": "Unsere Philosophie basiert auf den Werten Transparenz und Verantwortlichkeit." },
+      "quality": { "title": "Qualitätsstandards", "desc": "Wir liefern hochwertige zertifizierte Dienstleistungen zur vollständigen Kundenzufriedenheit." }
+    }
+  },
+  "hero": {
+    "tagline": "Ihr vertrauenswürdiger Berater seit 2000",
+    "title": "Buchhaltungs- & Steuerdienstleistungen",
+    "subtitle": "Wir übernehmen die Buchhaltung und Steuerverwaltung Ihres Unternehmens mit Präzision, Transparenz und modernen Methoden.",
+    "cta": "Kontaktieren Sie uns",
+    "ctaSecondary": "Unsere Leistungen"
+  },
+  "quote": {
+    "text": "Der Erfolg jedes Unternehmens beginnt mit den richtigen Entscheidungen. Wir sind hier, um Ihnen die nötigen Werkzeuge zu geben.",
+    "author": "XR Services — Vertrauenswürdige Berater"
+  },
+  "services": {
+    "title": "Leistungen",
+    "subtitle": "Umfassende Lösungen für jeden Unternehmensbedarf",
+    "items": {
+      "accounting": { "title": "Buchhaltungsleistungen", "desc": "Vollständige Buchführung, monatliche Gewinn- und Verlustrechnung und Bilanzen." },
+      "tax": { "title": "Steuerdienstleistungen", "desc": "Steuerplanung, Umsatzsteuererklärungen und Steuervertretung." },
+      "consulting": { "title": "Beratungsleistungen", "desc": "Strategische Entwicklung, Unternehmensplanung und Finanzanalyse." },
+      "payroll": { "title": "Lohnabrechnung", "desc": "Vollständige Lohnverwaltung, Sozialversicherung und Arbeitsrecht." },
+      "audit": { "title": "Steuerprüfungen", "desc": "Unterstützung bei Steuerprüfungen und Vertretung vor Behörden." },
+      "monitoring": { "title": "Finanzüberwachung", "desc": "Regelmäßige Überwachung der Finanzdaten und Managementberichte." },
+      "startup": { "title": "Unternehmensgründung", "desc": "Firmengründung, Rechtsformwahl, Anmeldung und Lizenzierung." },
+      "corporate": { "title": "Unternehmensunterstützung", "desc": "Rechtsänderungen, Fusionen, Unternehmensumwandlungen und Liquidationen." }
+    }
+  },
+  "specialSolutions": {
+    "title": "Spezielle Lösungen",
+    "subtitle": "Spezialisierte Dienstleistungen für Ihre Branche",
+    "items": {
+      "hotels": { "title": "Hotels", "desc": "Buchhaltungsmanagement für Hoteleinheiten, Tourismus-MwSt. und Compliance." },
+      "manufacturing": { "title": "Gewerbe / Industrie", "desc": "Produktionskalkulation, Lager und Supply-Chain-Management." },
+      "education": { "title": "Bildungseinrichtungen", "desc": "Buchhaltung für Bildungseinrichtungen, Spenden und Zuschüsse." },
+      "construction": { "title": "Bau / Technik", "desc": "Technische Projekte, Baugenehmigungen und Bau-MwSt." },
+      "food": { "title": "Gastronomie", "desc": "Restaurants, Cafés, Catering — vollständige F&B-Buchhaltung." },
+      "commerce": { "title": "Handelsunternehmen", "desc": "Einzel- und Großhandel, Bestandsverwaltung und B2B-Lösungen." }
+    }
+  },
+  "articles": {
+    "title": "Neuigkeiten",
+    "subtitle": "Bleiben Sie über die neuesten Entwicklungen in Steuern und Buchhaltung informiert",
+    "readMore": "Mehr lesen",
+    "items": {
+      "article1": { "date": "15. Mai 2026", "title": "Einkommensteueränderungen 2026", "excerpt": "Die neuen Vorschriften für das Steuerjahr 2026 betreffen Unternehmen erheblich." },
+      "article2": { "date": "8. Mai 2026", "title": "myDATA: Alles was Sie wissen müssen", "excerpt": "Vollständiger Leitfaden zur elektronischen Datenübermittlung an die Steuerbehörde." },
+      "article3": { "date": "1. Mai 2026", "title": "Digitale Transformation in der Buchhaltung", "excerpt": "Wie moderne Technologien die Arbeitsweise von Buchhaltern verändern." }
+    }
+  },
+  "newsletter": {
+    "title": "Bleiben Sie informiert",
+    "subtitle": "Abonnieren Sie unseren Newsletter und erhalten Sie die neuesten Steuernachrichten",
+    "placeholder": "Ihre E-Mail-Adresse",
+    "consent": "Ich stimme der Verarbeitung meiner persönlichen Daten gemäß der Datenschutzerklärung zu",
+    "submit": "Abonnieren",
+    "success": "Danke! Sie haben sich erfolgreich angemeldet.",
+    "errorEmail": "Bitte geben Sie eine gültige E-Mail ein",
+    "errorConsent": "Ihre Zustimmung ist erforderlich"
+  },
+  "social": {
+    "title": "Folgen Sie XR Services",
+    "subtitle": "in den sozialen Medien für Neuigkeiten, Tipps und Updates"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Wir sind hier, um alle Ihre Fragen zu beantworten",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "addressValue": "Keiriadon 25 - 27, Kato Petralona, Athen",
+    "form": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "message": "Nachricht",
+      "submit": "Nachricht senden",
+      "success": "Ihre Nachricht wurde erfolgreich gesendet!",
+      "error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut."
+    }
+  },
+  "footer": {
+    "contact": "Kontaktinformationen",
+    "menu": "Menü",
+    "servicesTitle": "Leistungen",
+    "newsletter": "Newsletter",
+    "rights": "© 2026 XR Services. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen"
+  },
+  "seo": {
+    "title": "XR Services | Buchhaltungs- und Steuerdienstleistungen",
+    "description": "XR Services bietet Buchhaltungs-, Steuer- und Beratungsdienstleistungen für Unternehmen und Fachleute."
+  }
+}
