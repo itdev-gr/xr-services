@@ -20,6 +20,10 @@
     @apply font-sans text-gray-800 antialiased;
   }
 
+  p {
+    font-size: 18px;
+  }
+
   * {
     @apply border-gray-200;
   }

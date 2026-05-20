@@ -50,17 +50,15 @@ export default function BlogPreview() {
     <section id="articles" ref={ref} className="py-20 bg-white">
       <div className="container-xl">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 text-[#c8102e] text-xs font-bold uppercase tracking-widest mb-3">
-              <span className="w-8 h-px bg-[#c8102e]" />
-              {t('articles.title')}
-              <span className="w-8 h-px bg-[#c8102e]" />
-            </div>
-            <p className="text-gray-900 max-w-md font-medium">
-              {t('articles.subtitle')}
-            </p>
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 text-[#c8102e] text-xs font-bold uppercase tracking-widest mb-3">
+            <span className="w-8 h-px bg-[#c8102e]" />
+            {t('articles.title')}
+            <span className="w-8 h-px bg-[#c8102e]" />
           </div>
+          <p className="text-gray-900 font-medium">
+            {t('articles.subtitle')}
+          </p>
         </div>
 
         {/* Article cards */}

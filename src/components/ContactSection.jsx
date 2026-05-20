@@ -60,7 +60,7 @@ export default function ContactSection() {
             {t('contact.title')}
             <span className="w-8 h-px bg-[#c8102e]" />
           </div>
-          <p className="text-gray-900 max-w-md mx-auto font-medium">{t('contact.subtitle')}</p>
+          <p className="text-gray-900 mx-auto font-medium whitespace-nowrap">{t('contact.subtitle')}</p>
         </div>
 
         {/* Form — centered */}
