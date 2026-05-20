@@ -47,7 +47,7 @@ export default function Hero() {
       <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-24 relative z-10 py-20 md:py-28">
         <div className="max-w-2xl">
           {/* Main title */}
-          <h1 ref={titleRef} className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight mb-6 tracking-tight">
+          <h1 ref={titleRef} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight mb-6 tracking-tight whitespace-nowrap">
             {t('hero.title')}
           </h1>
 
