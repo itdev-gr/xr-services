@@ -49,9 +49,7 @@ export default function Footer() {
                 <div className="text-white/70 text-xs tracking-widest uppercase">Accounting & Consulting</div>
               </div>
             </div>
-            <p className="text-white text-sm leading-relaxed mb-6">
-              Αξιόπιστοι λογιστικοί και φοροτεχνικοί σύμβουλοι από το 2000. Εξειδικευμένες λύσεις για κάθε επιχείρηση.
-            </p>
+
             <div className="flex gap-3">
               {[
                 { icon: FacebookIcon, href: 'https://www.facebook.com/XRServices/', label: 'Facebook' },

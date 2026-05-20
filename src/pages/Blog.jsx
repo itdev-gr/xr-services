@@ -60,9 +60,6 @@ export default function Blog() {
               <span className="text-white">{t('nav.articles')}</span>
             </div>
             <h1 className="blog-animate text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">{t('nav.articles')}</h1>
-            <p className="blog-animate text-white/60 text-lg max-w-xl">
-              {t('articles.subtitle')}
-            </p>
           </div>
         </div>
 
