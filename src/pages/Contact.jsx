@@ -93,7 +93,7 @@ export default function Contact() {
               {/* Left — Στοιχεία Επικοινωνίας */}
               <div className="lg:col-span-2">
                 <div className="c-animate">
-                  <h2 className="text-lg font-black text-[#0f1c3f] uppercase tracking-wider mb-1">
+                  <h2 className="text-lg font-black text-[#0f1c3f] tracking-wider mb-1">
                     Στοιχεία Επικοινωνίας
                   </h2>
                   <div className="w-10 h-1 bg-[#c8102e] rounded mb-8" />
@@ -155,7 +155,7 @@ export default function Contact() {
               {/* Right — Φόρμα */}
               <div className="lg:col-span-3">
                 <div className="c-animate">
-                  <h2 className="text-2xl font-black text-[#0f1c3f] mb-1">Στείλτε Μήνυμα</h2>
+                  <h2 className="text-lg font-black text-[#0f1c3f] tracking-wider mb-1">Στείλτε Μήνυμα</h2>
                   <div className="w-10 h-1 bg-[#c8102e] rounded mb-8" />
                 </div>
 
