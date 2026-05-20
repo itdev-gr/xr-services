@@ -30,14 +30,15 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[90vh] flex items-center overflow-hidden"
+      className="relative min-h-[60vh] md:min-h-[90vh] flex items-center overflow-hidden"
     >
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src="/herosection.png"
           alt=""
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: '65% center' }}
         />
         {/* Dark overlay για readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a1228]/85 via-[#0f1c3f]/70 to-[#0a1228]/40" />
@@ -46,12 +47,12 @@ export default function Hero() {
       <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-24 relative z-10 py-20 md:py-28">
         <div className="max-w-2xl">
           {/* Main title */}
-          <h1 ref={titleRef} className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-none mb-6 tracking-tight whitespace-nowrap">
+          <h1 ref={titleRef} className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight mb-6 tracking-tight">
             {t('hero.title')}
           </h1>
 
           {/* Subtitle */}
-          <p ref={subtitleRef} className="text-lg text-white leading-relaxed mb-10 max-w-xl">
+          <p ref={subtitleRef} className="text-base sm:text-lg text-white leading-relaxed mb-10 max-w-xl">
             {t('hero.subtitle')}
           </p>
 
