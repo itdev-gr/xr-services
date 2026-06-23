@@ -67,7 +67,7 @@ export default function Contact() {
     <>
       <Helmet>
         <title>Επικοινωνία | XR Services</title>
-        <meta name="description" content="Επικοινωνήστε με την XR Services. Τηλέφωνο: 210 342 1331, Email: info@xr-services.gr" />
+        <meta name="description" content="Επικοινωνήστε με την XR Services. Τηλέφωνο: +30 210 342 1331, Email: info@xr-services.gr" />
       </Helmet>
 
       <div ref={ref}>
@@ -125,10 +125,10 @@ export default function Contact() {
                       <div className="text-xs font-bold text-black uppercase tracking-widest mb-2">
                         {t('contact.phone')}
                       </div>
-                      <a href="tel:2103421331" className="block text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">
+                      <a href="tel:+302103421331" className="block text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">
                         +30 210 342 1331
                       </a>
-                      <a href="tel:2103421862" className="block text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">
+                      <a href="tel:+302103421862" className="block text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">
                         +30 210 342 1862
                       </a>
                     </div>

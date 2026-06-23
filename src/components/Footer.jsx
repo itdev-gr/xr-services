@@ -104,11 +104,11 @@ export default function Footer() {
               {t('footer.phoneLine')}
             </p>
             <a
-              href="tel:2103421331"
+              href="tel:+302103421331"
               className="inline-flex items-center justify-center xl:justify-start gap-2.5 text-2xl font-bold text-white hover:text-white/90 transition-colors mb-6"
             >
               <Phone size={20} className="text-[#c8102e]" fill="#c8102e" />
-              210 342 1331
+              +30 210 342 1331
             </a>
 
             <div className="flex items-center justify-center xl:justify-start gap-2.5">

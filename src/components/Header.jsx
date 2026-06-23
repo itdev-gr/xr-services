@@ -341,13 +341,13 @@ export default function Header() {
       {/* Top bar */}
       <div className="bg-[#0f1c3f] text-white text-[17px] py-3 hidden md:block">
         <div className="container-xl flex justify-center items-center gap-10">
-          <a href="tel:2103421331" className="flex items-center gap-2 font-semibold hover:text-red-300 transition-colors">
+          <a href="tel:+302103421331" className="flex items-center gap-2 font-semibold hover:text-red-300 transition-colors">
             <Phone size={16} />
-            <span>210 342 1331</span>
+            <span>+30 210 342 1331</span>
           </a>
-          <a href="tel:2103421862" className="flex items-center gap-2 font-semibold hover:text-red-300 transition-colors">
+          <a href="tel:+302103421862" className="flex items-center gap-2 font-semibold hover:text-red-300 transition-colors">
             <Phone size={16} />
-            <span>210 342 1862</span>
+            <span>+30 210 342 1862</span>
           </a>
           <a href="mailto:info@xr-services.gr" className="flex items-center gap-2 font-semibold hover:text-red-300 transition-colors">
             <Mail size={16} />
@@ -419,7 +419,7 @@ export default function Header() {
               <LanguageSwitcher />
             </div>
             <a
-              href="tel:2103421331"
+              href="tel:+302103421331"
               className="hidden md:inline-flex items-center gap-2 bg-[#c8102e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#a00d24] transition-colors duration-200 uppercase tracking-wide"
             >
               {t('hero.cta')}

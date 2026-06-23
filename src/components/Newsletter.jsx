@@ -8,12 +8,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-
-// Placeholder — wire to Mailchimp / Brevo / Supabase / custom API
-const handleNewsletterSubmit = async (email) => {
-  console.log('Newsletter subscription for:', email);
-  return { success: true };
-};
+import { subscribeToMailchimp } from '../utils/mailchimp';
 
 export default function Newsletter() {
   const { t } = useTranslation();
@@ -30,7 +25,7 @@ export default function Newsletter() {
     setError('');
     setStatus('loading');
     try {
-      await handleNewsletterSubmit(email);
+      await subscribeToMailchimp(email, 'newsletter');
       setStatus('success');
       setEmail('');
     } catch {

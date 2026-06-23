@@ -311,7 +311,14 @@
     "notYet": "Not yet",
     "yes": "Yes",
     "close": "Close",
-    "ariaLabel": "Update notification"
+    "ariaLabel": "Update notification",
+    "emailLead": "Enter your email to receive our updates.",
+    "emailPlaceholder": "Your email",
+    "emailSubmit": "Subscribe",
+    "emailLoading": "Sending...",
+    "emailInvalid": "Invalid email address",
+    "success": "Thank you! You will receive our updates.",
+    "error": "Something went wrong. Please try again."
   },
   "social": {
     "title": "Follow XR Services",
@@ -414,7 +421,7 @@
         {
           "title": "1. Data controller",
           "paragraphs": [
-            "The data controller is XR Services, located at Keiriadon 25-27, Kato Petralona, email: info@xr-services.gr, phone: 210 342 1331."
+            "The data controller is XR Services, located at Keiriadon 25-27, Kato Petralona, email: info@xr-services.gr, phone: +30 210 342 1331."
           ]
         },
         {
@@ -513,7 +520,7 @@
           "title": "5. Changes & contact",
           "paragraphs": [
             "We reserve the right to modify these terms at any time. Changes take effect upon publication on the website.",
-            "For questions regarding these terms, contact info@xr-services.gr or call 210 342 1331."
+            "For questions regarding these terms, contact info@xr-services.gr or call +30 210 342 1331."
           ]
         }
       ]

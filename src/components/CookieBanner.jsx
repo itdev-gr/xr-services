@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { grantAnalyticsConsent, hasAnalyticsConsent } from '../utils/analytics';
@@ -6,24 +7,31 @@ import { grantAnalyticsConsent, hasAnalyticsConsent } from '../utils/analytics';
 export default function CookieBanner() {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setVisible(!hasAnalyticsConsent());
+    if (hasAnalyticsConsent()) return;
+
+    setVisible(true);
+    requestAnimationFrame(() => setMounted(true));
   }, []);
 
   const handleAccept = () => {
     grantAnalyticsConsent();
-    setVisible(false);
+    setMounted(false);
+    window.setTimeout(() => setVisible(false), 250);
   };
 
-  if (!visible) return null;
+  if (!visible || typeof document === 'undefined') return null;
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-live="polite"
       aria-label={t('cookieBanner.ariaLabel')}
-      className="fixed bottom-0 left-0 right-0 z-[200] border-t border-white/10 bg-[#0f1c3f] shadow-[0_-8px_30px_rgba(0,0,0,0.25)]"
+      className={`fixed bottom-0 left-0 right-0 z-[10000] border-t border-white/10 bg-[#0f1c3f] shadow-[0_-8px_30px_rgba(0,0,0,0.25)] transition-transform duration-300 ease-out ${
+        mounted ? 'translate-y-0' : 'translate-y-full'
+      }`}
     >
       <div
         className="absolute inset-0 opacity-[0.06] pointer-events-none"
@@ -54,6 +62,7 @@ export default function CookieBanner() {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
