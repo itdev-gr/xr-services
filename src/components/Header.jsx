@@ -1,9 +1,28 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Mail, ChevronDown, ArrowRight } from 'lucide-react';
+import { X, Phone, Mail, ChevronDown } from 'lucide-react';
 import { gsap } from 'gsap';
-import LanguageSwitcher from './LanguageSwitcher';
+import LanguageSwitcher, { MobileLanguageSwitcher } from './LanguageSwitcher';
+
+const SERVICE_ITEMS = [
+  { key: 'accounting', href: '/services/accounting', labelKey: 'services.items.accounting.title' },
+  { key: 'tax',        href: '/services/tax', labelKey: 'services.items.tax.title' },
+  { key: 'consulting', href: '/services/consulting', labelKey: 'services.items.consulting.title' },
+  { key: 'audit',      href: '/services/audit', labelKey: 'services.items.audit.title' },
+  { key: 'payroll',    href: '/services/payroll', labelKey: 'services.items.payroll.title' },
+];
+
+const SECTOR_ITEMS = [
+  { key: 'commerce',         href: '/sectors/commerce',         labelKey: 'nav.sectorItems.commerce' },
+  { key: 'rentcar',          href: '/sectors/rentcar',          labelKey: 'nav.sectorItems.rentcar' },
+  { key: 'taxi',             href: '/sectors/taxi',             labelKey: 'nav.sectorItems.taxi' },
+  { key: 'serviceProviders', href: '/sectors/serviceProviders', labelKey: 'nav.sectorItems.serviceProviders' },
+  { key: 'construction',     href: '/sectors/construction',     labelKey: 'nav.sectorItems.construction' },
+  { key: 'medical',          href: '/sectors/medical',          labelKey: 'nav.sectorItems.medical' },
+  { key: 'repairs',          href: '/sectors/repairs',          labelKey: 'nav.sectorItems.repairs' },
+  { key: 'freelancers',      href: '/sectors/freelancers',      labelKey: 'nav.sectorItems.freelancers' },
+];
 
 const NAV_ITEMS = [
   { key: 'home', href: '#' },
@@ -25,14 +44,9 @@ const NAV_ITEMS = [
     key: 'services',
     href: '#services',
     children: [
-      { key: 'accounting',  href: '#services', labelKey: 'services.items.accounting.title' },
-      { key: 'tax',         href: '#services', labelKey: 'services.items.tax.title' },
-      { key: 'consulting',  href: '#services', labelKey: 'services.items.consulting.title' },
-      { key: 'audit',       href: '#services', labelKey: 'services.items.audit.title' },
-      { key: 'monitoring',  href: '#services', labelKey: 'nav.servicesItems.financial' },
-      { key: 'seminars',    href: '#services', labelKey: 'nav.servicesItems.seminars' },
-      { key: 'payroll',     href: '#services', labelKey: 'nav.servicesItems.payroll' },
-      { key: 'special',     href: '#services', labelKey: 'nav.servicesItems.special' },
+      ...SERVICE_ITEMS,
+      { key: 'sectors-label', isGroupLabel: true, labelKey: 'nav.servicesItems.sectors' },
+      ...SECTOR_ITEMS,
     ],
   },
   { key: 'articles', href: '/blog', external: true },
@@ -41,28 +55,12 @@ const NAV_ITEMS = [
 
 function MobileMenu({ open, onClose, items, onNavigate, mobileExpanded, setMobileExpanded }) {
   const { t } = useTranslation();
-  const overlayRef = useRef(null);
   const panelRef = useRef(null);
-  const itemsRef = useRef(null);
 
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden';
-      const tl = gsap.timeline();
-      tl.fromTo(overlayRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.25, ease: 'power2.out' }
-      )
-      .fromTo(panelRef.current,
-        { x: '100%' },
-        { x: '0%', duration: 0.35, ease: 'power3.out' },
-        '-=0.15'
-      )
-      .fromTo(itemsRef.current?.children ? Array.from(itemsRef.current.children) : [],
-        { x: 30, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.3, stagger: 0.05, ease: 'power2.out' },
-        '-=0.1'
-      );
+      gsap.fromTo(panelRef.current, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
     } else {
       document.body.style.overflow = '';
     }
@@ -70,111 +68,181 @@ function MobileMenu({ open, onClose, items, onNavigate, mobileExpanded, setMobil
   }, [open]);
 
   const handleClose = () => {
-    const tl = gsap.timeline({ onComplete: onClose });
-    tl.to(panelRef.current, { x: '100%', duration: 0.3, ease: 'power3.in' })
-      .to(overlayRef.current, { opacity: 0, duration: 0.2 }, '-=0.1');
+    gsap.to(panelRef.current, {
+      opacity: 0,
+      duration: 0.2,
+      ease: 'power2.in',
+      onComplete: onClose,
+    });
   };
 
   const handleNav = (href, external) => {
     handleClose();
-    setTimeout(() => onNavigate(href, external), 300);
+    setTimeout(() => onNavigate(href, external), 220);
   };
 
   if (!open) return null;
 
   return (
-    <div className="lg:hidden fixed inset-0 z-50">
-      {/* Backdrop */}
-      <div
-        ref={overlayRef}
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={handleClose}
-      />
+    <div
+      ref={panelRef}
+      className="lg:hidden fixed inset-0 z-[100] bg-white flex flex-col"
+    >
+      {/* Top bar — same layout as header so X aligns with hamburger */}
+      <div className="flex items-center justify-between gap-3 h-20 px-4 sm:px-6 shrink-0">
+        <img
+          src="/XRS-MAIN-9.svg"
+          alt="XR Services"
+          className="h-11 w-auto max-w-[calc(100%-3.75rem)] object-contain object-left"
+        />
+        <button
+          type="button"
+          onClick={handleClose}
+          aria-label="Close menu"
+          className="flex items-center justify-center w-14 h-14 shrink-0 text-[#0f1c3f] hover:text-[#c8102e] transition-colors"
+        >
+          <X size={32} strokeWidth={2.75} />
+        </button>
+      </div>
 
-      {/* Panel */}
-      <div
-        ref={panelRef}
-        className="absolute right-0 top-0 bottom-0 w-full sm:w-96 bg-white flex flex-col shadow-2xl"
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-          <img src="/XRS-MAIN-9.svg" alt="XR Services" className="h-10 w-auto object-contain" />
-          <button
-            onClick={handleClose}
-            className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
-          >
-            <X size={20} className="text-gray-700" />
-          </button>
-        </div>
-
-        {/* Nav items */}
-        <div ref={itemsRef} className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-1">
-          {items.map(({ key, href, children, external }) => (
-            <div key={key}>
-              {children ? (
-                <>
-                  <button
-                    onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
-                    className="w-full flex items-center justify-between py-4 text-gray-900 font-semibold text-lg border-b border-gray-100 hover:text-[#c8102e] transition-colors"
-                  >
-                    {t(`nav.${key}`)}
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform duration-300 ${mobileExpanded === key ? 'rotate-180 text-[#c8102e]' : 'text-gray-400'}`}
-                    />
-                  </button>
-                  {mobileExpanded === key && (
-                    <div className="py-2 pl-4 flex flex-col gap-0.5">
-                      {children.map((child) => {
-                        const label = child.labelKey ? t(child.labelKey) :
-                          t(`${key === 'services' ? 'services.items' : 'specialSolutions.items'}.${child.key}.title`);
-                        return (
-                          <a
-                            key={child.key}
-                            href={child.href}
-                            onClick={(e) => { e.preventDefault(); handleNav(child.href, true); }}
-                            className="flex items-center gap-3 py-2.5 text-gray-600 hover:text-[#c8102e] text-sm font-medium transition-colors group"
-                          >
-                            <ArrowRight size={13} className="text-gray-300 group-hover:text-[#c8102e] flex-shrink-0" />
-                            {label}
-                          </a>
-                        );
-                      })}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <a
-                  href={href}
-                  onClick={(e) => { e.preventDefault(); handleNav(href, external); }}
-                  className="flex items-center justify-between py-4 text-gray-900 font-semibold text-lg border-b border-gray-100 hover:text-[#c8102e] transition-colors group"
+      {/* Nav items */}
+      <nav className="flex-1 overflow-y-auto px-6">
+        {items.map(({ key, href, children, external }) => (
+          <div key={key}>
+            {children ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
+                  className="w-full flex items-center justify-between py-5 text-gray-900 font-bold text-lg border-b border-gray-200 hover:text-[#c8102e] transition-colors"
                 >
                   {t(`nav.${key}`)}
-                  <ArrowRight size={16} className="text-gray-300 group-hover:text-[#c8102e] transition-colors" />
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
+                  <ChevronDown
+                    size={18}
+                    className={`transition-transform duration-300 ${mobileExpanded === key ? 'rotate-180 text-[#c8102e]' : 'text-gray-900'}`}
+                  />
+                </button>
+                {mobileExpanded === key && (
+                  <div className="py-2 pl-2 flex flex-col border-b border-gray-200">
+                    {children.map((child) => {
+                      if (child.isGroupLabel) {
+                        return (
+                          <p
+                            key={child.key}
+                            className="pt-4 pb-1 text-xs font-bold uppercase tracking-wider text-[#c8102e]"
+                          >
+                            {t(child.labelKey)}
+                          </p>
+                        );
+                      }
+                      const label = child.labelKey ? t(child.labelKey) :
+                        t(`services.items.${child.key}.title`);
+                      return (
+                        <a
+                          key={child.key}
+                          href={child.href}
+                          onClick={(e) => { e.preventDefault(); handleNav(child.href, true); }}
+                          className="py-3 text-black hover:text-[#c8102e] text-base font-medium transition-colors"
+                        >
+                          {label}
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
+              </>
+            ) : (
+              <a
+                href={href}
+                onClick={(e) => { e.preventDefault(); handleNav(href, external); }}
+                className="flex items-center py-5 text-gray-900 font-bold text-lg border-b border-gray-200 hover:text-[#c8102e] transition-colors"
+              >
+                {t(`nav.${key}`)}
+              </a>
+            )}
+          </div>
+        ))}
+      </nav>
 
-        {/* Footer contact info */}
-        <div className="px-6 py-6 border-t border-gray-100 space-y-3">
-          <a href="tel:2103421331" className="flex items-center gap-3 text-gray-600 hover:text-[#c8102e] text-sm transition-colors">
-            <Phone size={15} className="text-[#c8102e]" />
-            210 342 1331
-          </a>
-          <a href="mailto:info@xr-services.gr" className="flex items-center gap-3 text-gray-600 hover:text-[#c8102e] text-sm transition-colors">
-            <Mail size={15} className="text-[#c8102e]" />
-            info@xr-services.gr
-          </a>
-          <a
-            href="/contact"
-            onClick={(e) => { e.preventDefault(); handleNav('/contact', true); }}
-            className="mt-4 w-full flex items-center justify-center gap-2 bg-[#c8102e] text-white font-bold py-3.5 rounded-xl hover:bg-[#a00d24] transition-colors"
-          >
-            Επικοινωνήστε μαζί μας
-            <ArrowRight size={15} />
-          </a>
+      <MobileLanguageSwitcher />
+    </div>
+  );
+}
+
+function MegaMenuLink({ href, label, onNavigate, className = '' }) {
+  return (
+    <a
+      href={href}
+      onClick={(e) => { e.preventDefault(); onNavigate(href, true); }}
+      className={`group flex items-start rounded-lg px-3 py-2.5 text-sm xl:text-[15px] text-black hover:text-[#c8102e] hover:bg-red-50/80 transition-colors duration-150 leading-snug h-full ${className}`}
+    >
+      {label}
+    </a>
+  );
+}
+
+function SectorMenuGrid({ items, onNavigate, t }) {
+  const rows = [];
+  for (let i = 0; i < items.length; i += 2) {
+    rows.push(items.slice(i, i + 2));
+  }
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      {rows.map(([left, right]) => (
+        <div
+          key={left.key}
+          className="grid grid-cols-2 gap-x-3 items-stretch"
+        >
+          <MegaMenuLink
+            href={left.href}
+            label={t(left.labelKey)}
+            onNavigate={onNavigate}
+          />
+          {right && (
+            <MegaMenuLink
+              href={right.href}
+              label={t(right.labelKey)}
+              onNavigate={onNavigate}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ServicesMegaMenu({ onNavigate }) {
+  const { t } = useTranslation();
+
+  return (
+    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+      <div className="w-[min(860px,calc(100vw-2rem))] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+        <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.55fr)]">
+          {/* Main services */}
+          <div className="bg-gradient-to-br from-gray-50 to-white p-6 border-r border-gray-100">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#c8102e] mb-4">
+              {t('nav.servicesMega.servicesTitle')}
+            </p>
+            <div className="space-y-0.5">
+              {SERVICE_ITEMS.map((item) => (
+                <MegaMenuLink
+                  key={item.key}
+                  href={item.href}
+                  label={t(item.labelKey)}
+                  onNavigate={onNavigate}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Specialization sectors */}
+          <div className="p-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#c8102e] mb-4">
+              {t('nav.servicesMega.sectorsTitle')}
+            </p>
+            <SectorMenuGrid items={SECTOR_ITEMS} onNavigate={onNavigate} t={t} />
+          </div>
         </div>
       </div>
     </div>
@@ -184,21 +252,24 @@ function MobileMenu({ open, onClose, items, onNavigate, mobileExpanded, setMobil
 function DropdownMenu({ items, parentKey, onNavigate }) {
   const { t } = useTranslation();
 
+  if (parentKey === 'services') {
+    return <ServicesMegaMenu onNavigate={onNavigate} />;
+  }
+
   const getLabel = (item) => {
     if (item.labelKey) return t(item.labelKey);
-    const prefix = parentKey === 'services' ? 'services.items' : 'specialSolutions.items';
-    return t(`${prefix}.${item.key}.title`);
+    return t(`services.items.${item.key}.title`);
   };
 
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 min-w-[260px] xl:min-w-[300px] 2xl:min-w-[340px] animate-in fade-in slide-in-from-top-2 duration-150">
+    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50 min-w-[260px] animate-in fade-in slide-in-from-top-2 duration-150">
       <div className="py-2">
         {items.map((item) => (
           <a
             key={item.key}
             href={item.href}
             onClick={(e) => { e.preventDefault(); onNavigate(item.href, true); }}
-            className="flex items-center px-5 py-2.5 xl:py-3 text-sm xl:text-base 2xl:text-lg text-gray-700 hover:text-[#c8102e] hover:bg-red-50 transition-colors duration-150"
+            className="flex items-center px-5 py-2.5 xl:py-3 text-sm xl:text-base text-black hover:text-[#c8102e] hover:bg-red-50 transition-colors duration-150 leading-snug"
           >
             {getLabel(item)}
           </a>
@@ -287,29 +358,29 @@ export default function Header() {
 
       {/* Main navbar */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? 'bg-white shadow-sm border-b border-gray-100'
             : 'bg-white'
         }`}
       >
-        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center h-24 md:h-28 relative">
-          {/* Logo — far left */}
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 h-20 md:h-28 lg:h-32 relative">
+          {/* Logo */}
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); handleNavClick('#'); }}
-            className="flex items-center flex-shrink-0 z-10"
+            className="flex items-center min-w-0 flex-1 lg:flex-none lg:max-w-none max-w-[calc(100%-3.75rem)]"
           >
             <img
               src="/XRS-MAIN-9.svg"
               alt="XR Services"
-              className="h-16 md:h-20 w-auto object-contain"
+              className="h-11 sm:h-16 md:h-20 lg:h-24 w-auto max-w-full object-contain object-left"
               style={{ imageRendering: '-webkit-optimize-contrast', transform: 'translateZ(0)' }}
             />
           </a>
 
           {/* Desktop nav — absolute center */}
-          <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+          <nav className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2 pointer-events-none lg:pointer-events-auto">
             {NAV_ITEMS.map(({ key, href, children, external }) => (
               <div
                 key={key}
@@ -342,9 +413,11 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Right side — far right */}
-          <div className="flex items-center gap-3 flex-shrink-0 ml-auto z-10">
-            <LanguageSwitcher />
+          {/* Right side */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="hidden lg:block">
+              <LanguageSwitcher />
+            </div>
             <a
               href="tel:2103421331"
               className="hidden md:inline-flex items-center gap-2 bg-[#c8102e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#a00d24] transition-colors duration-200 uppercase tracking-wide"
@@ -352,11 +425,19 @@ export default function Header() {
               {t('hero.cta')}
             </a>
             <button
-              className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+              type="button"
+              className="lg:hidden flex items-center justify-center w-14 h-14 shrink-0 text-[#0f1c3f] hover:text-[#c8102e] transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileOpen ? (
+                <X size={32} strokeWidth={2.75} color="currentColor" />
+              ) : (
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" />
+                </svg>
+              )}
             </button>
           </div>
         </div>

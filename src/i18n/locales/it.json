@@ -5,11 +5,28 @@
     "services": "Servizi",
     "articles": "Notizie",
     "contact": "Contatti",
+    "language": "Lingua",
     "servicesItems": {
       "financial": "Servizi Finanziari",
-      "seminars": "Seminari",
       "payroll": "Elaborazione Buste Paga",
-      "special": "Soluzioni Speciali"
+      "special": "Soluzioni Speciali",
+      "sectors": "Settori di specializzazione"
+    },
+    "servicesMega": {
+      "servicesTitle": "Servizi",
+      "sectorsTitle": "Settori di specializzazione",
+      "viewAll": "Tutti i servizi",
+      "tagline": "Contabilità, fiscalità e consulenza"
+    },
+    "sectorItems": {
+      "commerce": "Imprese commerciali",
+      "rentcar": "Società di noleggio auto con e senza autista (rent a car)",
+      "taxi": "Società NCC e taxi (EDX)",
+      "serviceProviders": "Società di erogazione servizi",
+      "construction": "Imprese edili",
+      "medical": "Società di servizi medici",
+      "repairs": "Imprese di riparazione (officine, autolavaggi, centri di riparazione, ecc.)",
+      "freelancers": "Professionisti liberi (avvocati, notai, ingegneri, architetti, ecc.)"
     },
     "companyItems": {
       "vision": "La Nostra Visione",
@@ -24,16 +41,24 @@
   "about": {
     "tagline": "Chi siamo",
     "title": "XR Services",
-    "p1": "XR Services è stata fondata nel 2000 ed è diventata uno dei più affidabili consulenti contabili e fiscali in Grecia, servendo centinaia di aziende.",
-    "p2": "Con un team esperto di professionisti specializzati, forniamo servizi di alta qualità su misura per ogni azienda.",
+    "p1": "XR Services (2021) è la seconda generazione dello studio contabile «Chronopoulos Dionysios», con oltre 40 anni di attività continua e affidabilità.",
+    "p2": "Un team di 20+ professionisti in contabilità, fiscalità, buste paga e consulenza — supportiamo imprese di ogni settore e forma giuridica in tutta la Grecia.",
+    "highlights": {
+      "experience": "40+",
+      "experienceLabel": "Anni di esperienza",
+      "team": "20+",
+      "teamLabel": "Professionisti",
+      "coverage": "100%",
+      "coverageLabel": "Copertura nazionale"
+    },
     "cta": "Scopri di più",
-    "whyTagline": "Perché sceglierci",
-    "whyTitle": "Perché Sceglierci",
+    "whyTagline": "I nostri valori",
+    "whyTitle": "La Nostra Filosofia e i Nostri Valori",
     "why": {
-      "experience": { "title": "Esperienza & Competenza", "desc": "Conosciamo il settore da oltre 25 anni, fornendo servizi di alta qualità ai nostri clienti." },
-      "consistency": { "title": "Coerenza & Efficacia", "desc": "Il nostro impegno è la coerenza e l'efficacia per garantire ai clienti un futuro migliore." },
-      "transparency": { "title": "Trasparenza & Responsabilità", "desc": "La nostra filosofia si basa sui valori della trasparenza e della responsabilità." },
-      "quality": { "title": "Standard di Qualità", "desc": "Forniamo servizi di alta qualità certificati garantendo la completa soddisfazione del cliente." }
+      "professionalism": { "title": "Professionalità & Efficacia", "desc": "Comprendiamo le sfide del business moderno e agiamo come partner strategici con consulenza di alto livello." },
+      "evolution": { "title": "Esperienza, Evoluzione & Adattabilità", "desc": "Combiniamo anni di esperienza con continua ricerca di conoscenza e garantiamo informazioni tempestive e affidabili." },
+      "communication": { "title": "Comunicazione Diretta & Informazione Continua", "desc": "La comunicazione diretta è un pilastro fondamentale. I nostri clienti hanno accesso rapido al nostro team e ricevono risposte tempestive." },
+      "quality": { "title": "Qualità, Conoscenza & Miglioramento Continuo", "desc": "Qualifiche accademiche e certificazioni formano la base della nostra competenza. Investiamo nell'apprendimento continuo." }
     }
   },
   "hero": {
@@ -76,12 +101,8 @@
   "articles": {
     "title": "Notizie",
     "subtitle": "Rimanete informati sugli ultimi sviluppi in materia fiscale e contabile",
-    "readMore": "Leggi di più",
-    "items": {
-      "article1": { "date": "15 Maggio 2026", "title": "Modifiche all'Imposta sul Reddito 2026", "excerpt": "Le nuove norme per l'anno fiscale 2026 riguardano notevolmente le imprese. Scoprite cosa cambia e come prepararsi." },
-      "article2": { "date": "8 Maggio 2026", "title": "myDATA: Tutto Quello che Devi Sapere", "excerpt": "Guida completa alla trasmissione elettronica dei dati all'autorità fiscale." },
-      "article3": { "date": "1 Maggio 2026", "title": "Trasformazione Digitale nella Contabilità", "excerpt": "Come le tecnologie moderne stanno cambiando il modo di lavorare dei contabili." }
-    }
+    "emptyTitle": "In arrivo",
+    "emptyMessage": "I nostri articoli appariranno qui non appena il sistema di gestione dei contenuti sarà pronto."
   },
   "newsletter": {
     "title": "Restate Informati",
@@ -92,6 +113,13 @@
     "success": "Grazie! Vi siete iscritti con successo.",
     "errorEmail": "Inserite un'email valida",
     "errorConsent": "È richiesto il vostro consenso"
+  },
+  "notificationPrompt": {
+    "message": "Volete essere i primi a conoscere le ultime novità fiscali e contabili?",
+    "notYet": "Non ancora",
+    "yes": "Sì",
+    "close": "Chiudi",
+    "ariaLabel": "Notifica aggiornamenti"
   },
   "social": {
     "title": "Seguite XR Services",
@@ -117,10 +145,19 @@
   "footer": {
     "contact": "Informazioni di Contatto",
     "menu": "Menu",
+    "company": "Azienda",
     "servicesTitle": "Servizi",
+    "certifications": "Certificazioni",
+    "legal": "Legale",
     "newsletter": "Newsletter",
+    "ctaTitle": "Richiedi consulenza online",
+    "ctaDescription": "Servizi contabili e fiscali affidabili per aziende e professionisti in tutta la Grecia.",
+    "ctaButton": "Contattaci",
+    "phoneLine": "Linea di contatto",
     "rights": "© 2026 XR Services. Tutti i diritti riservati.",
+    "developedBy": "Developed by",
     "privacy": "Privacy Policy",
+    "cookies": "Politica Cookie",
     "terms": "Termini di Utilizzo"
   },
   "seo": {

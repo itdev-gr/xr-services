@@ -5,7 +5,6 @@ import AboutSection from '../components/AboutSection';
 import QuoteBanner from '../components/QuoteBanner';
 import ServicesSection from '../components/ServicesSection';
 import ServicesGrid from '../components/ServicesGrid';
-import BlogPreview from '../components/BlogPreview';
 import Newsletter from '../components/Newsletter';
 import ContactSection from '../components/ContactSection';
 
@@ -28,7 +27,6 @@ export default function Home() {
       <AboutSection />
       <QuoteBanner />
       <ServicesGrid />
-      <BlogPreview />
       <Newsletter />
       <ContactSection />
     </>

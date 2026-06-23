@@ -47,10 +47,10 @@ export default function ContactSection() {
   };
 
   const inputClass = (id) =>
-    `w-full border ${errors[id] ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50'} rounded-xl px-4 py-3.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#c8102e] focus:bg-white transition-all`;
+    `w-full border ${errors[id] ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-gray-50'} rounded-xl px-4 py-3.5 text-sm text-black placeholder-gray-400 focus:outline-none focus:border-[#c8102e] focus:bg-white transition-all`;
 
   return (
-    <section id="contact" ref={ref} className="py-20 bg-gray-50">
+    <section id="contact" ref={ref} className="py-12 md:py-20 bg-gray-50 overflow-hidden">
       <div className="container-xl">
 
         {/* Section label */}
@@ -60,7 +60,9 @@ export default function ContactSection() {
             {t('contact.title')}
             <span className="w-8 h-px bg-[#c8102e]" />
           </div>
-          <p className="text-gray-900 mx-auto font-medium whitespace-nowrap">{t('contact.subtitle')}</p>
+          <p className="text-black w-full text-center font-semibold leading-snug text-balance px-2 sm:px-0 text-base sm:text-lg md:text-xl lg:text-[1.35rem] lg:whitespace-nowrap">
+            {t('contact.subtitle')}
+          </p>
         </div>
 
         {/* Form — centered */}
@@ -82,7 +84,7 @@ export default function ContactSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
                       {t('contact.form.name')} <span className="text-[#c8102e]">*</span>
                     </label>
                     <input
@@ -97,7 +99,7 @@ export default function ContactSection() {
 
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
                       {t('contact.form.email')} <span className="text-[#c8102e]">*</span>
                     </label>
                     <input
@@ -113,7 +115,7 @@ export default function ContactSection() {
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
                     {t('contact.form.phone')}
                   </label>
                   <input
@@ -127,7 +129,7 @@ export default function ContactSection() {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
                     {t('contact.form.message')} <span className="text-[#c8102e]">*</span>
                   </label>
                   <textarea

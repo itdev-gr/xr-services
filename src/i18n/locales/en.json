@@ -5,11 +5,28 @@
     "services": "Services",
     "articles": "News",
     "contact": "Contact",
+    "language": "Language",
     "servicesItems": {
       "financial": "Financial Services",
-      "seminars": "Seminars",
       "payroll": "Payroll Processing",
-      "special": "Special Solutions"
+      "special": "Special Solutions",
+      "sectors": "Specialization Sectors"
+    },
+    "servicesMega": {
+      "servicesTitle": "Services",
+      "sectorsTitle": "Specialization Sectors",
+      "viewAll": "All services",
+      "tagline": "Accounting, tax & consulting"
+    },
+    "sectorItems": {
+      "commerce": "Commercial businesses",
+      "rentcar": "Car rental companies with and without driver (rent a car)",
+      "taxi": "Rideshare & taxi companies (EDX)",
+      "serviceProviders": "Service provider companies",
+      "construction": "Construction companies",
+      "medical": "Medical services companies",
+      "repairs": "Repair businesses (garages, car washes, repair shops, etc.)",
+      "freelancers": "Freelance professionals (lawyers, notaries, engineers, architects, etc.)"
     },
     "companyItems": {
       "vision": "Our Vision",
@@ -24,16 +41,78 @@
   "about": {
     "tagline": "About us",
     "title": "XR Services",
-    "p1": "XR Services was founded in 2000 and has since become one of the most trusted accounting and tax consulting firms in Greece, serving hundreds of businesses across all sectors.",
-    "p2": "With an experienced team of specialized professionals, we provide high-quality accounting, tax and consulting services tailored to the needs of every business.",
+    "p1": "XR Services (2021) is the second generation of the \"Chronopoulos Dionysios\" accounting firm, building on 40+ years of consistent operation and reliability.",
+    "p2": "A team of 20+ professionals in accounting, taxation, payroll and consulting — we support businesses of every sector and legal form across Greece.",
+    "highlights": {
+      "experience": "40+",
+      "experienceLabel": "Years of experience",
+      "team": "20+",
+      "teamLabel": "Professionals",
+      "coverage": "100%",
+      "coverageLabel": "Nationwide coverage"
+    },
     "cta": "Learn More",
-    "whyTagline": "Reasons to choose us",
-    "whyTitle": "Why Choose Us",
+    "whyTagline": "Our values",
+    "whyTitle": "Our Philosophy and Values",
     "why": {
-      "experience": { "title": "Experience & Expertise", "desc": "We have been mastering our field for over 25 years, providing high-quality services to our clients." },
-      "consistency": { "title": "Consistency & Effectiveness", "desc": "Our commitment is consistency and effectiveness so our clients achieve a better and more profitable future." },
-      "transparency": { "title": "Transparency & Accountability", "desc": "Our philosophy is built on transparency and accountability — the core pillars of our client service." },
-      "quality": { "title": "Quality Standards", "desc": "We deliver high-quality certified services ensuring complete client satisfaction." }
+      "professionalism": {
+        "title": "Professionalism & Effectiveness",
+        "desc": "We deeply understand the challenges of modern business. We go beyond accounting services to act as strategic partners, offering high-level consulting support. Our goal is to create measurable value and strengthen the competitiveness of every business that trusts us."
+      },
+      "evolution": {
+        "title": "Experience, Evolution & Speed of Adaptation",
+        "desc": "We combine years of experience with a continuous pursuit of knowledge and improvement. We constantly monitor legislative, tax and business developments, adapt quickly to change and ensure our clients always receive timely and reliable information."
+      },
+      "communication": {
+        "title": "Direct Communication & Continuous Updates",
+        "desc": "Direct and meaningful communication is a core pillar of how we operate. We have developed modern and effective communication channels so our clients have quick access to our team and receive timely answers and solutions to every concern."
+      },
+      "quality": {
+        "title": "Quality, Knowledge & Continuous Improvement",
+        "desc": "Academic qualifications and professional certifications form a strong foundation for our expertise. However, the real value of our services is proven daily through our work, consistency and results. We invest in lifelong learning, specialization and continuous development to remain among the leading professionals in our field."
+      }
+    }
+  },
+  "companyPage": {
+    "backHome": "Back to Home",
+    "metaDescription": "Learn more about XR Services — our vision, values, history and team.",
+    "vision": {
+      "p1": "At XR Services, our vision is to be the most trusted and strategic partner for every business, regardless of economic conditions at national or international level.",
+      "p2": "We are committed to providing high-level services covering all business needs, specializing in accounting, tax support and business consulting. Through knowledge, innovation and continuous evolution, we aim to create real value for our clients, strengthening their sustainability, growth and competitive advantage.",
+      "p3": "Our goal is to actively contribute to the success of every business that trusts us, offering solutions that exceed expectations and build long-term relationships of trust and cooperation."
+    },
+    "values": {
+      "intro": "Our values form the foundation of our corporate culture and guide every decision, action and collaboration.",
+      "items": {
+        "integrity": { "title": "Integrity", "desc": "We operate with transparency, ethics and consistency, building relationships of trust that stand the test of time." },
+        "respect": { "title": "Respect", "desc": "We treat every client, partner and team member with professionalism, honesty and appreciation." },
+        "professionalism": { "title": "Professionalism", "desc": "We provide high-standard services with dedication to quality, consistency and results." },
+        "reliability": { "title": "Reliability", "desc": "We keep our commitments and stand by our clients with responsibility and consistency." },
+        "confidentiality": { "title": "Confidentiality", "desc": "We handle every piece of information with absolute discretion and respect, ensuring protection of data and client interests." },
+        "improvement": { "title": "Continuous Improvement", "desc": "We continuously invest in knowledge, innovation and evolution to offer solutions that meet today's market needs." }
+      },
+      "outro": "These values are not merely operating principles, but our commitment to the people and businesses that trust us every day."
+    },
+    "history": {
+      "p1": "XR Services was founded in 2021 as the second generation of accounting and consulting services and the natural evolution of the accounting firm \"Chronopoulos Dionysios\", which has operated with consistency, reliability and professionalism for over four decades.",
+      "p2": "Built on a strong legacy of 40+ years of experience, we evolved our vision by creating a modern organization that meets the growing needs of today's business reality. Today, our company employs more than 20 specialized professionals and operates in two modern, owned office spaces.",
+      "p3": "With the same dedication, passion and values that have defined us all these years, we continue to evolve, invest in our people and infrastructure, and provide high-level services that create real value for our clients.",
+      "p4": "Our journey to date is the foundation for the future we build every day: a future of growth, innovation and continuous support for entrepreneurship."
+    },
+    "people": {
+      "p1": "The strength of XR Services lies in its people. We believe that knowledge, expertise and continuous evolution are essential for delivering high-level services and creating real value for our clients.",
+      "p2": "Our team consists of experienced accountants, tax advisors and business consultants with strong academic backgrounds, professional certifications and years of industry experience. We also invest systematically in lifelong learning and continuous training.",
+      "p3": "With professionalism, responsibility and team spirit, our people work daily to offer reliable solutions, timely support and personalized guidance tailored to each business.",
+      "p4": "For us, our clients' success is the result of the knowledge, dedication and daily effort of our people."
+    },
+    "careers": {
+      "content": "We are looking for talented individuals who share our values and want to grow in a dynamic environment. If you are interested in a career at XR Services, send your CV to info@xr-services.gr."
+    },
+    "financials": {
+      "content": "XR Services maintains full transparency in its operations. Our financial data reflects steady growth and a healthy financial position, demonstrating the trust of our clients."
+    },
+    "network": {
+      "content": "XR Services is a member of Allinial Global, one of the largest international networks of independent accounting firms. Through this membership, we can serve clients with international activities providing access to specialized knowledge worldwide."
     }
   },
   "hero": {
@@ -50,26 +129,27 @@
   "services": {
     "title": "Services",
     "subtitle": "Comprehensive solutions for every business need",
+    "readMore": "Learn more",
     "items": {
       "accounting": {
         "title": "Accounting Services",
-        "desc": "Full bookkeeping, monthly profit & loss statements and balance sheets."
+        "desc": "In a constantly changing business environment, we provide comprehensive accounting services with emphasis on accuracy, consistency and compliance with the current legislative framework. We ensure the reliability of your company's financial data, providing the right foundation for safe and effective business decisions."
       },
       "tax": {
         "title": "Tax Services",
-        "desc": "Tax planning, VAT returns, and tax authority representation."
+        "desc": "The constantly changing tax environment requires experience, expertise and continuous updating. At XR Services we provide comprehensive tax support, ensuring your company's compliance with current legislation and proper management of its tax obligations. With years of experience in tax audits and complex tax cases, we help prevent risks and protect your business."
       },
       "consulting": {
         "title": "Consulting Services",
-        "desc": "Strategic development, business planning and financial analysis."
+        "desc": "At XR Services we combine accounting, tax and labor expertise with modern business consulting services. We support businesses at every stage of development, from business plan creation and growth strategy to organizational restructuring and operational optimization. Business plans, costing, break-even point, SWOT and PESTEL analysis are just some of what we offer."
       },
       "payroll": {
-        "title": "Payroll",
-        "desc": "Complete payroll management, social security and labor law compliance."
+        "title": "Labor & Payroll",
+        "desc": "Payroll and personnel management is not just a compliance obligation, but a critical factor for growth. We combine expertise in labor and payroll matters with HR consulting services, helping businesses effectively manage their most valuable asset: their people."
       },
       "audit": {
         "title": "Tax Audits",
-        "desc": "Support in tax audits and representation before authorities."
+        "desc": "Proper preparation is the most important tool against any tax audit. With years of experience in managing and supporting tax audits, XR Services helps businesses identify potential risks early, ensure compliance and face every audit with confidence."
       },
       "monitoring": {
         "title": "Financial Monitoring",
@@ -82,6 +162,101 @@
       "corporate": {
         "title": "Corporate Support",
         "desc": "Legal changes, mergers, corporate transformations and liquidations."
+      }
+    }
+  },
+  "servicePage": {
+    "breadcrumbServices": "Services",
+    "includesTitle": "What our services include",
+    "ctaTitle": "Need support?",
+    "ctaText": "We are at your disposal to discuss your business needs and recommend the most suitable solution.",
+    "ctaButton": "Contact",
+    "backToServices": "All services",
+    "items": {
+      "accounting": {
+        "metaDescription": "Comprehensive accounting services for businesses and professionals — XR Services.",
+        "intro": "We provide reliable accounting services with emphasis on accuracy, consistency and compliance with the current legislative framework.",
+        "paragraphs": [
+          "In a constantly changing business environment, proper bookkeeping is the foundation of every business decision. We handle your company's day-to-day accounting, ensuring reliable financial data and timely updates.",
+          "Our team systematically monitors legislative developments and applies the required procedures so your business operates with confidence and transparency.",
+          "Our goal is to be a stable partner supporting the growth and sustainability of your business."
+        ],
+        "includes": [
+          "Bookkeeping and accounting entries",
+          "Preparation and submission of periodic declarations",
+          "Financial monitoring and reports",
+          "myDATA and electronic books compliance",
+          "Support for internal audits",
+          "Consulting on accounting and organizational matters"
+        ]
+      },
+      "tax": {
+        "metaDescription": "Tax services and tax compliance for businesses — XR Services.",
+        "intro": "The constantly changing tax environment requires experience, expertise and continuous updating.",
+        "paragraphs": [
+          "We provide comprehensive tax support, ensuring your company's compliance with current legislation and proper management of tax obligations.",
+          "With years of experience in tax audits and complex tax cases, we help prevent risks and protect your business.",
+          "We guide you clearly through every tax decision to minimize risks and leverage available opportunities."
+        ],
+        "includes": [
+          "Tax planning and advisory",
+          "Tax return preparation and submission",
+          "Support during tax audits",
+          "Updates on legislative changes",
+          "Handling of tax issues",
+          "VAT and special tax advisory"
+        ]
+      },
+      "consulting": {
+        "metaDescription": "Business and financial consulting for growth and sustainability — XR Services.",
+        "intro": "We combine accounting, tax and labor expertise with modern business consulting services.",
+        "paragraphs": [
+          "We support businesses at every stage of development — from business plan creation and growth strategy to organizational restructuring and operational optimization.",
+          "Our goal is to create sustainable solutions that strengthen competitiveness and long-term success.",
+          "We analyze your company's financial data and propose realistic, measurable improvement actions."
+        ],
+        "includes": [
+          "Business plans and feasibility studies",
+          "Costing and profitability analysis",
+          "Break-even point and cash flow analysis",
+          "SWOT and PESTEL analysis",
+          "Strategic growth planning",
+          "Organizational and operational consulting"
+        ]
+      },
+      "payroll": {
+        "metaDescription": "Payroll, labor law and HR consulting services — XR Services.",
+        "intro": "Payroll and personnel management are a critical factor for every business's growth.",
+        "paragraphs": [
+          "We combine expertise in labor and payroll matters with HR consulting, helping businesses manage their most valuable asset: their people.",
+          "We handle the full payroll process with accuracy and compliance, reducing your company's administrative burden.",
+          "We keep you promptly informed of every change in labor legislation that affects your business."
+        ],
+        "includes": [
+          "Payroll calculation and payment",
+          "Submission of periodic payroll declarations",
+          "Employment relationship management",
+          "Labor law consulting",
+          "HR support and personnel policies",
+          "Issuance of certificates and employment forms"
+        ]
+      },
+      "audit": {
+        "metaDescription": "Support and preparation for tax audits — XR Services.",
+        "intro": "Proper preparation is the most important tool against any tax audit.",
+        "paragraphs": [
+          "With years of experience in managing and supporting tax audits, we help businesses identify potential risks early and ensure compliance.",
+          "We guide you through every stage of an audit, from document preparation to substantive representation before the authorities.",
+          "Our goal is for you to face every audit with safety, clarity and confidence."
+        ],
+        "includes": [
+          "Pre-audit tax position review",
+          "Audit file preparation",
+          "Representation before audit authorities",
+          "Risk identification and mitigation",
+          "Advisory during audits",
+          "Tax issue management strategy"
+        ]
       }
     }
   },
@@ -118,24 +293,8 @@
   "articles": {
     "title": "News",
     "subtitle": "Stay informed about the latest developments in taxation and accounting",
-    "readMore": "Read More",
-    "items": {
-      "article1": {
-        "date": "May 15, 2026",
-        "title": "Income Tax Changes 2026",
-        "excerpt": "The new regulations for the 2026 tax year significantly affect businesses. Discover what is changing and how to prepare."
-      },
-      "article2": {
-        "date": "May 8, 2026",
-        "title": "myDATA: Everything You Need to Know",
-        "excerpt": "Complete guide to electronic data transmission to the tax authority. Obligations, deadlines and practical advice."
-      },
-      "article3": {
-        "date": "May 1, 2026",
-        "title": "Digital Transformation in Accounting",
-        "excerpt": "How modern technologies are changing the way accountants work and why you should embrace the change."
-      }
-    }
+    "emptyTitle": "Coming soon",
+    "emptyMessage": "Our articles will appear here once the content management system is ready."
   },
   "newsletter": {
     "title": "Stay Informed",
@@ -146,6 +305,13 @@
     "success": "Thank you! You have successfully subscribed.",
     "errorEmail": "Please enter a valid email",
     "errorConsent": "Your consent is required"
+  },
+  "notificationPrompt": {
+    "message": "Would you like to be the first to know about the latest tax and accounting updates?",
+    "notYet": "Not yet",
+    "yes": "Yes",
+    "close": "Close",
+    "ariaLabel": "Update notification"
   },
   "social": {
     "title": "Follow XR Services",
@@ -171,11 +337,193 @@
   "footer": {
     "contact": "Contact Information",
     "menu": "Menu",
+    "company": "Company",
     "servicesTitle": "Services",
+    "certifications": "Certifications",
+    "legal": "Legal",
     "newsletter": "Newsletter",
+    "ctaTitle": "Request advice online",
+    "ctaDescription": "Reliable accounting and tax services for businesses and professionals across Greece.",
+    "ctaButton": "Contact us",
+    "phoneLine": "Contact line",
     "rights": "© 2026 XR Services. All rights reserved.",
+    "developedBy": "Developed by",
     "privacy": "Privacy Policy",
+    "cookies": "Cookies Policy",
     "terms": "Terms of Use"
+  },
+  "sectorPage": {
+    "breadcrumbSectors": "Specialization sectors",
+    "ctaButton": "Contact us",
+    "backHome": "Back to home",
+    "items": {
+      "commerce": {
+        "metaDescription": "Accounting and tax services for commercial businesses.",
+        "intro": "We support commercial businesses with accurate accounting and tax management.",
+        "text": "We handle bookkeeping, inventory, VAT and tax returns, with emphasis on compliance and timely updates."
+      },
+      "rentcar": {
+        "metaDescription": "Accounting and tax services for car rental companies.",
+        "intro": "Specialized support for rent a car companies.",
+        "text": "We manage the sector-specific tax and accounting requirements so your business runs with confidence."
+      },
+      "taxi": {
+        "metaDescription": "Accounting services for taxi and passenger transport companies.",
+        "intro": "Accounting and tax coverage for taxi companies.",
+        "text": "We handle declarations, driver payroll and tax monitoring, with knowledge of sector requirements."
+      },
+      "serviceProviders": {
+        "metaDescription": "Accounting for service provider companies.",
+        "intro": "Complete accounting support for service provider companies.",
+        "text": "We help with proper revenue recognition, declarations and tax organization of your business."
+      },
+      "construction": {
+        "metaDescription": "Accounting and tax for construction companies.",
+        "intro": "Expertise in construction companies and technical projects.",
+        "text": "We support bookkeeping, project taxation and compliance with sector-specific requirements."
+      },
+      "medical": {
+        "metaDescription": "Accounting services for medical service companies.",
+        "intro": "Accounting and tax for medical centers and clinics.",
+        "text": "We handle accounting management and tax obligations, respecting the specifics of the sector."
+      },
+      "repairs": {
+        "metaDescription": "Accounting for workshops, car washes and repair shops.",
+        "intro": "Accounting coverage for repair and maintenance businesses.",
+        "text": "We support bookkeeping, VAT and tax returns with practical solutions for your daily operations."
+      },
+      "freelancers": {
+        "metaDescription": "Tax and accounting for freelancers and professionals.",
+        "intro": "Support for lawyers, notaries, engineers and other freelancers.",
+        "text": "We handle tax returns, accounting monitoring and advisory tailored to your needs."
+      }
+    }
+  },
+  "legalPages": {
+    "common": {
+      "breadcrumbLegal": "Legal",
+      "updatedLabel": "Last updated",
+      "backHome": "Back to home"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "metaDescription": "Personal data protection policy of XR Services.",
+      "updated": "June 2026",
+      "intro": "XR Services respects your privacy and processes your personal data in accordance with the General Data Protection Regulation (GDPR) and applicable Greek law.",
+      "sections": [
+        {
+          "title": "1. Data controller",
+          "paragraphs": [
+            "The data controller is XR Services, located at Keiriadon 25-27, Kato Petralona, email: info@xr-services.gr, phone: 210 342 1331."
+          ]
+        },
+        {
+          "title": "2. Data we collect",
+          "paragraphs": [
+            "Through our website we may collect contact details (name, email, phone, message) when you submit a contact form or subscribe to our newsletter.",
+            "We also collect technical data (e.g. IP address, browser type) for security purposes and to improve the user experience."
+          ]
+        },
+        {
+          "title": "3. Purpose of processing",
+          "paragraphs": [
+            "Data is used to respond to contact requests, provide our services, send informational material (with your consent) and comply with legal obligations."
+          ]
+        },
+        {
+          "title": "4. Your rights",
+          "paragraphs": [
+            "You have the right of access, rectification, erasure, restriction of processing, portability and objection, as well as the right to withdraw consent where applicable.",
+            "To exercise your rights, contact info@xr-services.gr. You may also lodge a complaint with the Hellenic Data Protection Authority (www.dpa.gr)."
+          ]
+        },
+        {
+          "title": "5. Retention & security",
+          "paragraphs": [
+            "Data is retained for as long as necessary for the purposes of processing or as required by law. We implement appropriate technical and organizational measures to protect your data."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookies Policy",
+      "metaDescription": "Information about cookies used on the XR Services website.",
+      "updated": "June 2026",
+      "intro": "The website xr-services.gr uses cookies and similar technologies for proper operation and to improve your browsing experience.",
+      "sections": [
+        {
+          "title": "1. What are cookies",
+          "paragraphs": [
+            "Cookies are small text files stored on your device when you visit a website. They help us recognize your preferences and improve our services."
+          ]
+        },
+        {
+          "title": "2. Types of cookies we use",
+          "paragraphs": [
+            "Essential cookies: required for basic website functionality (e.g. language, security).",
+            "Analytics cookies: help us understand how the website is used so we can improve it.",
+            "Preference cookies: store your choices, such as browsing language."
+          ]
+        },
+        {
+          "title": "3. Managing cookies",
+          "paragraphs": [
+            "You can configure or disable cookies through your browser settings. Disabling certain cookies may affect website functionality."
+          ]
+        },
+        {
+          "title": "4. Third parties",
+          "paragraphs": [
+            "We may use third-party services (e.g. maps, analytics) that place their own cookies. We recommend reviewing the privacy policies of the respective providers."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "metaDescription": "Terms of use for the XR Services website.",
+      "updated": "June 2026",
+      "intro": "By accessing and using xr-services.gr you accept these terms. If you do not agree, please do not use the website.",
+      "sections": [
+        {
+          "title": "1. Purpose of the website",
+          "paragraphs": [
+            "This website provides general information about the accounting, tax and consulting services of XR Services. The content does not constitute legal or tax advice."
+          ]
+        },
+        {
+          "title": "2. Intellectual property",
+          "paragraphs": [
+            "All text, logos, images and materials on this website are protected by applicable law. Reproduction, distribution or modification without prior written permission is prohibited."
+          ]
+        },
+        {
+          "title": "3. Liability",
+          "paragraphs": [
+            "We make every effort to provide accurate and up-to-date content, without guaranteeing its completeness or accuracy. XR Services is not liable for damages arising from use of the website or third-party links."
+          ]
+        },
+        {
+          "title": "4. Third-party links",
+          "paragraphs": [
+            "The website may contain links to external sites. We are not responsible for the content or privacy practices of those websites."
+          ]
+        },
+        {
+          "title": "5. Changes & contact",
+          "paragraphs": [
+            "We reserve the right to modify these terms at any time. Changes take effect upon publication on the website.",
+            "For questions regarding these terms, contact info@xr-services.gr or call 210 342 1331."
+          ]
+        }
+      ]
+    }
+  },
+  "cookieBanner": {
+    "ariaLabel": "Cookie notice",
+    "message": "We use cookies 🍪 to offer you a better browsing experience. By continuing, you accept our analytics cookies.",
+    "learnMore": "Learn more",
+    "accept": "I agree"
   },
   "seo": {
     "title": "XR Services | Accounting & Tax Services",

@@ -5,11 +5,28 @@
     "services": "Leistungen",
     "articles": "Neuigkeiten",
     "contact": "Kontakt",
+    "language": "Sprache",
     "servicesItems": {
       "financial": "Finanzdienstleistungen",
-      "seminars": "Seminare",
       "payroll": "Lohnabrechnung",
-      "special": "Spezielle Lösungen"
+      "special": "Spezielle Lösungen",
+      "sectors": "Spezialisierungsbranchen"
+    },
+    "servicesMega": {
+      "servicesTitle": "Dienstleistungen",
+      "sectorsTitle": "Spezialisierungsbranchen",
+      "viewAll": "Alle Dienstleistungen",
+      "tagline": "Buchhaltung, Steuern & Beratung"
+    },
+    "sectorItems": {
+      "commerce": "Handelsunternehmen",
+      "rentcar": "Autovermietungen mit und ohne Fahrer (Rent a Car)",
+      "taxi": "EDX- und Taxiunternehmen",
+      "serviceProviders": "Dienstleistungsunternehmen",
+      "construction": "Bauunternehmen",
+      "medical": "Medizinische Dienstleistungsunternehmen",
+      "repairs": "Reparaturbetriebe (Werkstätten, Waschanlagen, Reparaturwerkstätten usw.)",
+      "freelancers": "Freiberufler (Anwälte, Notare, Ingenieure, Architekten usw.)"
     },
     "companyItems": {
       "vision": "Unsere Vision",
@@ -24,16 +41,24 @@
   "about": {
     "tagline": "Über uns",
     "title": "XR Services",
-    "p1": "XR Services wurde im Jahr 2000 gegründet und ist seitdem einer der vertrauenswürdigsten Buchhaltungs- und Steuerberater in Griechenland.",
-    "p2": "Mit einem erfahrenen Team spezialisierter Fachleute bieten wir hochwertige Dienstleistungen für jedes Unternehmen.",
+    "p1": "XR Services (2021) ist die zweite Generation der Buchhaltungskanzlei „Chronopoulos Dionysios“ — mit über 40 Jahren kontinuierlicher Tätigkeit und Verlässlichkeit.",
+    "p2": "Ein Team von 20+ Fachleuten in Buchhaltung, Steuern, Lohnabrechnung und Beratung — wir unterstützen Unternehmen jedes Sektors und jeder Rechtsform in ganz Griechenland.",
+    "highlights": {
+      "experience": "40+",
+      "experienceLabel": "Jahre Erfahrung",
+      "team": "20+",
+      "teamLabel": "Fachleute",
+      "coverage": "100%",
+      "coverageLabel": "Landesweite Abdeckung"
+    },
     "cta": "Mehr erfahren",
-    "whyTagline": "Gründe uns zu wählen",
-    "whyTitle": "Warum uns wählen",
+    "whyTagline": "Unsere Werte",
+    "whyTitle": "Unsere Philosophie und Werte",
     "why": {
-      "experience": { "title": "Erfahrung & Expertise", "desc": "Wir beherrschen unser Fachgebiet seit über 25 Jahren und bieten hochwertige Dienstleistungen." },
-      "consistency": { "title": "Konsistenz & Effektivität", "desc": "Unser Engagement ist Konsistenz und Effektivität für eine bessere Zukunft unserer Kunden." },
-      "transparency": { "title": "Transparenz & Verantwortung", "desc": "Unsere Philosophie basiert auf den Werten Transparenz und Verantwortlichkeit." },
-      "quality": { "title": "Qualitätsstandards", "desc": "Wir liefern hochwertige zertifizierte Dienstleistungen zur vollständigen Kundenzufriedenheit." }
+      "professionalism": { "title": "Professionalität & Effektivität", "desc": "Wir verstehen die Herausforderungen des modernen Geschäftslebens und agieren als strategische Partner mit hochwertiger Beratungsunterstützung." },
+      "evolution": { "title": "Erfahrung, Entwicklung & Anpassungsfähigkeit", "desc": "Wir verbinden langjährige Erfahrung mit kontinuierlichem Lernen und stellen sicher, dass unsere Kunden stets zeitnahe und zuverlässige Informationen erhalten." },
+      "communication": { "title": "Direkte Kommunikation & Kontinuierliche Information", "desc": "Direkte und sinnvolle Kommunikation ist ein Grundpfeiler unseres Handelns. Unsere Kunden haben schnellen Zugang zu unserem Team und erhalten zeitnahe Antworten." },
+      "quality": { "title": "Qualität, Wissen & Kontinuierliche Verbesserung", "desc": "Akademische Qualifikationen und Zertifizierungen bilden die Basis unserer Expertise. Wir investieren in lebenslanges Lernen und kontinuierliche Entwicklung." }
     }
   },
   "hero": {
@@ -76,12 +101,8 @@
   "articles": {
     "title": "Neuigkeiten",
     "subtitle": "Bleiben Sie über die neuesten Entwicklungen in Steuern und Buchhaltung informiert",
-    "readMore": "Mehr lesen",
-    "items": {
-      "article1": { "date": "15. Mai 2026", "title": "Einkommensteueränderungen 2026", "excerpt": "Die neuen Vorschriften für das Steuerjahr 2026 betreffen Unternehmen erheblich." },
-      "article2": { "date": "8. Mai 2026", "title": "myDATA: Alles was Sie wissen müssen", "excerpt": "Vollständiger Leitfaden zur elektronischen Datenübermittlung an die Steuerbehörde." },
-      "article3": { "date": "1. Mai 2026", "title": "Digitale Transformation in der Buchhaltung", "excerpt": "Wie moderne Technologien die Arbeitsweise von Buchhaltern verändern." }
-    }
+    "emptyTitle": "Demnächst verfügbar",
+    "emptyMessage": "Unsere Artikel erscheinen hier, sobald das Content-Management-System bereit ist."
   },
   "newsletter": {
     "title": "Bleiben Sie informiert",
@@ -92,6 +113,13 @@
     "success": "Danke! Sie haben sich erfolgreich angemeldet.",
     "errorEmail": "Bitte geben Sie eine gültige E-Mail ein",
     "errorConsent": "Ihre Zustimmung ist erforderlich"
+  },
+  "notificationPrompt": {
+    "message": "Möchten Sie als Erster über die neuesten Steuer- und Buchhaltungsentwicklungen informiert werden?",
+    "notYet": "Noch nicht",
+    "yes": "Ja",
+    "close": "Schließen",
+    "ariaLabel": "Update-Benachrichtigung"
   },
   "social": {
     "title": "Folgen Sie XR Services",
@@ -117,10 +145,19 @@
   "footer": {
     "contact": "Kontaktinformationen",
     "menu": "Menü",
+    "company": "Unternehmen",
     "servicesTitle": "Leistungen",
+    "certifications": "Zertifizierungen",
+    "legal": "Rechtliches",
     "newsletter": "Newsletter",
+    "ctaTitle": "Online-Beratung anfragen",
+    "ctaDescription": "Zuverlässige Buchhaltungs- und Steuerdienstleistungen für Unternehmen und Fachleute in ganz Griechenland.",
+    "ctaButton": "Kontaktieren Sie uns",
+    "phoneLine": "Kontaktlinie",
     "rights": "© 2026 XR Services. Alle Rechte vorbehalten.",
+    "developedBy": "Developed by",
     "privacy": "Datenschutzerklärung",
+    "cookies": "Cookie-Richtlinie",
     "terms": "Nutzungsbedingungen"
   },
   "seo": {

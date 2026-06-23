@@ -61,7 +61,7 @@ export default function Contact() {
   );
 
   const inputClass = (id) =>
-    `w-full border ${errors[id] ? 'border-red-400' : 'border-gray-300'} rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#c8102e] transition-colors bg-white`;
+    `w-full border ${errors[id] ? 'border-red-400' : 'border-gray-300'} rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:border-[#c8102e] transition-colors bg-white`;
 
   return (
     <>
@@ -106,7 +106,7 @@ export default function Contact() {
                       <MapPin size={24} className="text-[#c8102e]" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
+                      <div className="text-xs font-bold text-black uppercase tracking-widest mb-2">
                         {t('contact.address')}
                       </div>
                       <div className="text-[#0f1c3f] font-bold text-lg leading-snug">
@@ -122,7 +122,7 @@ export default function Contact() {
                       <Phone size={24} className="text-[#c8102e]" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
+                      <div className="text-xs font-bold text-black uppercase tracking-widest mb-2">
                         {t('contact.phone')}
                       </div>
                       <a href="tel:2103421331" className="block text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">
@@ -140,7 +140,7 @@ export default function Contact() {
                       <Mail size={24} className="text-[#c8102e]" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
+                      <div className="text-xs font-bold text-black uppercase tracking-widest mb-2">
                         {t('contact.email')}
                       </div>
                       <a href="mailto:info@xr-services.gr" className="text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">

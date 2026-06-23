@@ -53,7 +53,7 @@ export default function ServicesSection() {
           <h2 className="text-3xl md:text-4xl font-black text-[#0f1c3f] mb-4 tracking-tight">
             {t('services.title')}
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto">
+          <p className="text-black text-xl md:text-[1.35rem] max-w-xl mx-auto leading-snug">
             {t('services.subtitle')}
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function ServicesSection() {
                 <h3 className="font-bold text-[#0f1c3f] text-base mb-2 leading-tight">
                   {t(`services.items.${key}.title`)}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
+                <p className="text-black text-sm leading-relaxed">
                   {t(`services.items.${key}.desc`)}
                 </p>
                 <div className="mt-4 flex items-center gap-1 text-[#c8102e] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">

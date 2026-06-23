@@ -69,7 +69,7 @@ export default function Newsletter() {
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); setError(''); }}
                     placeholder={t('newsletter.placeholder')}
-                    className="flex-1 min-w-0 bg-white text-gray-800 placeholder-gray-400 px-5 py-4 text-sm focus:outline-none rounded-l-xl"
+                    className="flex-1 min-w-0 bg-white text-black placeholder-gray-400 px-5 py-4 text-sm focus:outline-none rounded-l-xl"
                   />
                   <button
                     type="submit"

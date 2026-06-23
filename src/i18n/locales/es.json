@@ -5,11 +5,28 @@
     "services": "Servicios",
     "articles": "Noticias",
     "contact": "Contacto",
+    "language": "Idioma",
     "servicesItems": {
       "financial": "Servicios Financieros",
-      "seminars": "Seminarios",
       "payroll": "Procesamiento de Nóminas",
-      "special": "Soluciones Especiales"
+      "special": "Soluciones Especiales",
+      "sectors": "Sectores de especialización"
+    },
+    "servicesMega": {
+      "servicesTitle": "Servicios",
+      "sectorsTitle": "Sectores de especialización",
+      "viewAll": "Todos los servicios",
+      "tagline": "Contabilidad, fiscalidad y consultoría"
+    },
+    "sectorItems": {
+      "commerce": "Empresas comerciales",
+      "rentcar": "Empresas de alquiler de coches con y sin conductor (rent a car)",
+      "taxi": "Empresas VTC y taxi (EDX)",
+      "serviceProviders": "Empresas de prestación de servicios",
+      "construction": "Empresas de construcción",
+      "medical": "Empresas de servicios médicos",
+      "repairs": "Empresas de reparación (talleres, lavaderos, centros de reparación, etc.)",
+      "freelancers": "Profesionales independientes (abogados, notarios, ingenieros, arquitectos, etc.)"
     },
     "companyItems": {
       "vision": "Nuestra Visión",
@@ -24,16 +41,24 @@
   "about": {
     "tagline": "Nuestra empresa",
     "title": "XR Services",
-    "p1": "XR Services fue fundada en 2000 y se ha convertido en uno de los asesores contables y fiscales más confiables de Grecia, sirviendo a cientos de empresas.",
-    "p2": "Con un equipo experimentado de profesionales especializados, brindamos servicios de alta calidad adaptados a las necesidades de cada empresa.",
+    "p1": "XR Services (2021) es la segunda generación del despacho contable «Chronopoulos Dionysios», con más de 40 años de actividad continua y fiabilidad.",
+    "p2": "Un equipo de 20+ profesionales en contabilidad, fiscalidad, nóminas y consultoría — apoyamos empresas de todo sector y forma jurídica en Grecia.",
+    "highlights": {
+      "experience": "40+",
+      "experienceLabel": "Años de experiencia",
+      "team": "20+",
+      "teamLabel": "Profesionales",
+      "coverage": "100%",
+      "coverageLabel": "Cobertura nacional"
+    },
     "cta": "Saber más",
-    "whyTagline": "Razones para elegirnos",
-    "whyTitle": "¿Por qué elegirnos?",
+    "whyTagline": "Nuestros valores",
+    "whyTitle": "Nuestra Filosofía y Valores",
     "why": {
-      "experience": { "title": "Experiencia & Conocimiento", "desc": "Dominamos nuestro campo durante más de 25 años, brindando servicios de alta calidad." },
-      "consistency": { "title": "Consistencia & Efectividad", "desc": "Nuestro compromiso es la consistencia y efectividad para un futuro mejor para nuestros clientes." },
-      "transparency": { "title": "Transparencia & Responsabilidad", "desc": "Nuestra filosofía se basa en los valores de transparencia y responsabilidad." },
-      "quality": { "title": "Estándares de Calidad", "desc": "Proporcionamos servicios certificados de alta calidad garantizando la satisfacción completa." }
+      "professionalism": { "title": "Profesionalismo & Efectividad", "desc": "Entendemos los desafíos del negocio moderno y actuamos como socios estratégicos con consultoría de alto nivel." },
+      "evolution": { "title": "Experiencia, Evolución & Adaptabilidad", "desc": "Combinamos años de experiencia con búsqueda continua de conocimiento y garantizamos información oportuna y fiable." },
+      "communication": { "title": "Comunicación Directa & Información Continua", "desc": "La comunicación directa es un pilar fundamental. Nuestros clientes tienen acceso rápido a nuestro equipo y reciben respuestas oportunas." },
+      "quality": { "title": "Calidad, Conocimiento & Mejora Continua", "desc": "Las cualificaciones académicas y certificaciones forman la base de nuestra experiencia. Invertimos en aprendizaje continuo." }
     }
   },
   "hero": {
@@ -76,12 +101,8 @@
   "articles": {
     "title": "Noticias",
     "subtitle": "Manténgase informado sobre los últimos desarrollos en fiscalidad y contabilidad",
-    "readMore": "Leer más",
-    "items": {
-      "article1": { "date": "15 Mayo 2026", "title": "Cambios en el Impuesto sobre la Renta 2026", "excerpt": "Las nuevas regulaciones para el año fiscal 2026 afectan significativamente a las empresas." },
-      "article2": { "date": "8 Mayo 2026", "title": "myDATA: Todo lo que necesita saber", "excerpt": "Guía completa sobre la transmisión electrónica de datos a la autoridad fiscal." },
-      "article3": { "date": "1 Mayo 2026", "title": "Transformación Digital en Contabilidad", "excerpt": "Cómo las tecnologías modernas están cambiando la forma de trabajar de los contables." }
-    }
+    "emptyTitle": "Próximamente",
+    "emptyMessage": "Nuestros artículos aparecerán aquí cuando el sistema de gestión de contenido esté listo."
   },
   "newsletter": {
     "title": "Manténgase Informado",
@@ -92,6 +113,13 @@
     "success": "¡Gracias! Se ha suscrito con éxito.",
     "errorEmail": "Por favor ingrese un email válido",
     "errorConsent": "Se requiere su consentimiento"
+  },
+  "notificationPrompt": {
+    "message": "¿Desea ser el primero en enterarse de las últimas novedades fiscales y contables?",
+    "notYet": "Todavía no",
+    "yes": "Sí",
+    "close": "Cerrar",
+    "ariaLabel": "Notificación de actualización"
   },
   "social": {
     "title": "Siga a XR Services",
@@ -117,10 +145,19 @@
   "footer": {
     "contact": "Información de Contacto",
     "menu": "Menú",
+    "company": "Empresa",
     "servicesTitle": "Servicios",
+    "certifications": "Certificaciones",
+    "legal": "Legal",
     "newsletter": "Newsletter",
+    "ctaTitle": "Solicite asesoramiento online",
+    "ctaDescription": "Servicios contables y fiscales fiables para empresas y profesionales en toda Grecia.",
+    "ctaButton": "Contáctenos",
+    "phoneLine": "Línea de contacto",
     "rights": "© 2026 XR Services. Todos los derechos reservados.",
+    "developedBy": "Developed by",
     "privacy": "Política de Privacidad",
+    "cookies": "Política de Cookies",
     "terms": "Términos de Uso"
   },
   "seo": {

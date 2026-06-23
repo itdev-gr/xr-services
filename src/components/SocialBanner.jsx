@@ -65,7 +65,7 @@ export default function SocialBanner() {
             <h3 className="social-animate text-2xl font-black text-[#0f1c3f] mb-1">
               {t('social.title')}
             </h3>
-            <p className="social-animate text-gray-500">{t('social.subtitle')}</p>
+            <p className="social-animate text-black">{t('social.subtitle')}</p>
           </div>
 
           <div className="social-animate flex items-center gap-3">

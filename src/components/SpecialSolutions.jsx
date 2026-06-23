@@ -61,7 +61,7 @@ export default function SpecialSolutions() {
           <h2 className="text-3xl md:text-4xl font-black text-[#0f1c3f] mb-4 tracking-tight">
             {t('specialSolutions.title')}
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto">
+          <p className="text-black text-lg max-w-xl mx-auto">
             {t('specialSolutions.subtitle')}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function SpecialSolutions() {
                 <h3 className="font-bold text-[#0f1c3f] text-lg mb-3">
                   {t(`specialSolutions.items.${key}.title`)}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-black text-sm leading-relaxed">
                   {t(`specialSolutions.items.${key}.desc`)}
                 </p>
               </div>

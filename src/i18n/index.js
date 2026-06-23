@@ -21,7 +21,15 @@ i18n
       fr: { translation: fr },
       es: { translation: es },
     },
-    fallbackLng: 'el',
+    fallbackLng: {
+      default: ['en', 'el'],
+      el: ['el'],
+      en: ['en', 'el'],
+      de: ['de', 'en'],
+      fr: ['fr', 'en'],
+      es: ['es', 'en'],
+      it: ['it', 'en'],
+    },
     lng: 'el',
     interpolation: {
       escapeValue: false,
