@@ -1,19 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Suspense } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import './i18n';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Blog from './pages/Blog';
-import Company from './pages/Company';
-import Contact from './pages/Contact';
-import Service from './pages/Service';
-import Legal from './pages/Legal';
-import Sector from './pages/Sector';
-import NotificationPrompt from './components/NotificationPrompt';
-import CookieBanner from './components/CookieBanner';
 import AnalyticsRouteTracker from './components/AnalyticsRouteTracker';
+import { initAnalytics } from './utils/analytics';
+
+const Blog = lazy(() => import('./pages/Blog'));
+const Company = lazy(() => import('./pages/Company'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Service = lazy(() => import('./pages/Service'));
+const Legal = lazy(() => import('./pages/Legal'));
+const Sector = lazy(() => import('./pages/Sector'));
+const CookieBanner = lazy(() => import('./components/CookieBanner'));
+const NotificationPrompt = lazy(() => import('./components/NotificationPrompt'));
 
 function LoadingFallback() {
   return (
@@ -26,7 +28,40 @@ function LoadingFallback() {
   );
 }
 
+function DeferredWidgets() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const show = () => setReady(true);
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(show, { timeout: 2500 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const timer = window.setTimeout(show, 1500);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  if (!ready) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <CookieBanner />
+      <NotificationPrompt />
+    </Suspense>
+  );
+}
+
 export default function App() {
+  useEffect(() => {
+    const loadAnalytics = () => { initAnalytics(); };
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(loadAnalytics, { timeout: 3000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const timer = window.setTimeout(loadAnalytics, 2000);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -49,8 +84,7 @@ export default function App() {
               </Routes>
             </main>
             <Footer />
-            <CookieBanner />
-            <NotificationPrompt />
+            <DeferredWidgets />
           </div>
         </Suspense>
       </BrowserRouter>

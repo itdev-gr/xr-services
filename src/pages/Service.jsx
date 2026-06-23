@@ -4,6 +4,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { isValidServiceSlug, getServiceImage } from '../config/services';
+import OptimizedImage from '../components/OptimizedImage';
 
 export default function Service() {
   const { slug } = useParams();
@@ -59,10 +60,12 @@ export default function Service() {
             <article className="max-w-3xl mx-auto">
               {image && (
                 <div className="mb-10 md:mb-12 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-                  <img
+                  <OptimizedImage
                     src={image}
                     alt={t(`servicePage.items.${slug}.imageAlt`, { defaultValue: title })}
                     className="w-full h-auto max-h-[420px] object-cover"
+                    mobileSrc={false}
+                    priority
                   />
                 </div>
               )}

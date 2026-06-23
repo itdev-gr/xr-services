@@ -10,33 +10,8 @@
     <meta name="description" content="Η XR Services παρέχει λογιστικές, φοροτεχνικές και συμβουλευτικές υπηρεσίες για επιχειρήσεις και επαγγελματίες." />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <link rel="canonical" href="https://xr-services.gr" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4379VWJ0B"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      var cookieConsent = null;
-      try {
-        cookieConsent = localStorage.getItem('xr_cookie_consent');
-      } catch (e) {}
-
-      gtag('consent', 'default', {
-        analytics_storage: cookieConsent === 'granted' ? 'granted' : 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        wait_for_update: 500,
-      });
-
-      gtag('config', 'G-W4379VWJ0B', {
-        anonymize_ip: true,
-      });
-    </script>
+    <link rel="preload" as="image" href="/herosection-mobile.webp" type="image/webp" media="(max-width: 768px)" />
+    <link rel="preload" as="image" href="/herosection.webp" type="image/webp" media="(min-width: 769px)" />
   </head>
   <body>
     <div id="root"></div>

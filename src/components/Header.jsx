@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { X, Phone, Mail, ChevronDown } from 'lucide-react';
-import { gsap } from 'gsap';
 import LanguageSwitcher, { MobileLanguageSwitcher } from './LanguageSwitcher';
 
 const SERVICE_ITEMS = [
@@ -55,25 +54,25 @@ const NAV_ITEMS = [
 
 function MobileMenu({ open, onClose, items, onNavigate, mobileExpanded, setMobileExpanded }) {
   const { t } = useTranslation();
-  const panelRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     if (open) {
+      setClosing(false);
+      setVisible(true);
       document.body.style.overflow = 'hidden';
-      gsap.fromTo(panelRef.current, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
-    } else {
-      document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
   const handleClose = () => {
-    gsap.to(panelRef.current, {
-      opacity: 0,
-      duration: 0.2,
-      ease: 'power2.in',
-      onComplete: onClose,
-    });
+    setClosing(true);
+    window.setTimeout(() => {
+      setVisible(false);
+      setClosing(false);
+      onClose();
+    }, 200);
   };
 
   const handleNav = (href, external) => {
@@ -81,19 +80,20 @@ function MobileMenu({ open, onClose, items, onNavigate, mobileExpanded, setMobil
     setTimeout(() => onNavigate(href, external), 220);
   };
 
-  if (!open) return null;
+  if (!open && !visible) return null;
 
   return (
     <div
-      ref={panelRef}
-      className="lg:hidden fixed inset-0 z-[100] bg-white flex flex-col"
+      className={`lg:hidden fixed inset-0 z-[100] bg-white flex flex-col transition-opacity duration-200 ease-out ${
+        closing ? 'opacity-0' : 'opacity-100'
+      }`}
     >
       {/* Top bar — same layout as header so X aligns with hamburger */}
       <div className="flex items-center justify-between gap-3 h-20 px-4 sm:px-6 shrink-0">
         <img
           src="/XRS-MAIN-9.svg"
           alt="XR Services"
-          className="h-11 w-auto max-w-[calc(100%-3.75rem)] object-contain object-left"
+          className="h-14 w-auto max-w-[calc(100%-3.75rem)] object-contain object-left"
         />
         <button
           type="button"
@@ -374,7 +374,7 @@ export default function Header() {
             <img
               src="/XRS-MAIN-9.svg"
               alt="XR Services"
-              className="h-11 sm:h-16 md:h-20 lg:h-24 w-auto max-w-full object-contain object-left"
+              className="h-14 sm:h-16 md:h-20 lg:h-24 w-auto max-w-full object-contain object-left"
               style={{ imageRendering: '-webkit-optimize-contrast', transform: 'translateZ(0)' }}
             />
           </a>

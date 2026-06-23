@@ -16,8 +16,8 @@ export default function CookieBanner() {
     requestAnimationFrame(() => setMounted(true));
   }, []);
 
-  const handleAccept = () => {
-    grantAnalyticsConsent();
+  const handleAccept = async () => {
+    await grantAnalyticsConsent();
     setMounted(false);
     window.setTimeout(() => setVisible(false), 250);
   };

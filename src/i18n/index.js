@@ -3,11 +3,22 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import el from './locales/el.json';
-import en from './locales/en.json';
-import it from './locales/it.json';
-import de from './locales/de.json';
-import fr from './locales/fr.json';
-import es from './locales/es.json';
+
+const lazyLocales = {
+  en: () => import('./locales/en.json'),
+  de: () => import('./locales/de.json'),
+  fr: () => import('./locales/fr.json'),
+  es: () => import('./locales/es.json'),
+  it: () => import('./locales/it.json'),
+};
+
+async function ensureLocale(lng) {
+  if (lng === 'el' || i18n.hasResourceBundle(lng, 'translation')) return;
+  const loader = lazyLocales[lng];
+  if (!loader) return;
+  const mod = await loader();
+  i18n.addResourceBundle(lng, 'translation', mod.default ?? mod);
+}
 
 i18n
   .use(LanguageDetector)
@@ -15,11 +26,6 @@ i18n
   .init({
     resources: {
       el: { translation: el },
-      en: { translation: en },
-      it: { translation: it },
-      de: { translation: de },
-      fr: { translation: fr },
-      es: { translation: es },
     },
     fallbackLng: {
       default: ['en', 'el'],
@@ -35,5 +41,8 @@ i18n
       escapeValue: false,
     },
   });
+
+i18n.on('languageChanged', ensureLocale);
+ensureLocale(i18n.language);
 
 export default i18n;

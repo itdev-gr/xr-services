@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
 
 import { getServiceImage } from '../config/services';
+import OptimizedImage from './OptimizedImage';
 
 const SERVICES = [
   {
@@ -101,10 +102,11 @@ export default function ServicesGrid() {
                 }}
               >
                 {image ? (
-                  <img
+                  <OptimizedImage
                     src={image}
                     alt={t(`servicePage.items.${key}.imageAlt`, { defaultValue: t(titleKey) })}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    mobileSrc={false}
                   />
                 ) : (
                   <div className={`absolute inset-0 ${bg}`}>
