@@ -1,0 +1,47 @@
+# XR Services
+
+> Λογιστικές, φοροτεχνικές και συμβουλευτικές υπηρεσίες για επιχειρήσεις και επαγγελματίες στην Ελλάδα. Η XR Services (2021) αποτελεί τη δεύτερη γενιά του λογιστικού γραφείου «Χρονόπουλος Διονύσιος», με 40+ χρόνια εμπειρίας και ομάδα 20+ επαγγελματιών.
+
+## Επικοινωνία
+
+- Τηλέφωνο: +30 210 342 1331, +30 210 342 1862
+- Email: info@xr-services.gr
+- Διεύθυνση: Κειριαδών 25-27, Κάτω Πετράλωνα, Αθήνα, Ελλάδα
+- Ιστοσελίδα: https://xr-services.gr
+
+## Κύριες σελίδες
+
+- [Αρχική](https://xr-services.gr/): Παρουσίαση υπηρεσιών λογιστικής, φορολογίας και συμβουλευτικής
+- [Η Εταιρεία](https://xr-services.gr/company): Όραμα, αξίες, ιστορία, ομάδα, καριέρα
+- [Επικοινωνία](https://xr-services.gr/contact): Φόρμα επικοινωνίας και στοιχεία επαφής
+- [Ενημέρωση](https://xr-services.gr/blog): Άρθρα φορολογίας και λογιστικής (σύντομα)
+
+## Υπηρεσίες
+
+- [Λογιστικές Υπηρεσίες](https://xr-services.gr/services/accounting): Τήρηση βιβλίων, λογιστική παρακολούθηση, οικονομική εικόνα επιχείρησης
+- [Φοροτεχνικές Υπηρεσίες](https://xr-services.gr/services/tax): Φορολογική συμμόρφωση, δηλώσεις, φορολογικός σχεδιασμός
+- [Συμβουλευτικές Υπηρεσίες](https://xr-services.gr/services/consulting): Επιχειρηματική και οικονομική συμβουλευτική
+- [Εργατικά & Μισθοδοσία](https://xr-services.gr/services/payroll): Μισθοδοσία, εργατικό δίκαιο, HR συμβουλευτική
+- [Φορολογικοί Έλεγχοι](https://xr-services.gr/services/audit): Υποστήριξη και προετοιμασία για φορολογικούς ελέγχους
+
+## Κλάδοι εξειδίκευσης
+
+- [Εμπορικές επιχειρήσεις](https://xr-services.gr/sectors/commerce)
+- [Rent a car](https://xr-services.gr/sectors/rentcar)
+- [ΕΔΧ / ΤΑΞΙ](https://xr-services.gr/sectors/taxi)
+- [Παροχή υπηρεσιών](https://xr-services.gr/sectors/serviceProviders)
+- [Κατασκευές](https://xr-services.gr/sectors/construction)
+- [Ιατρικές υπηρεσίες](https://xr-services.gr/sectors/medical)
+- [Συνεργεία & επισκευές](https://xr-services.gr/sectors/repairs)
+- [Ελεύθεροι επαγγελματίες](https://xr-services.gr/sectors/freelancers)
+
+## Νομικά
+
+- [Πολιτική Απορρήτου](https://xr-services.gr/privacy)
+- [Cookies](https://xr-services.gr/cookies)
+- [Όροι Χρήσης](https://xr-services.gr/terms)
+
+## Optional
+
+- [Sitemap](https://xr-services.gr/sitemap.xml): Πλήρης λίστα σελίδων
+- [robots.txt](https://xr-services.gr/robots.txt): Οδηγίες crawlers

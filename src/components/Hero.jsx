@@ -36,7 +36,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src="/herosection.png"
-          alt=""
+          alt={t('hero.imageAlt')}
           className="w-full h-full object-cover"
           style={{ objectPosition: '65% center' }}
         />

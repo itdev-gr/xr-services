@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { gsap } from 'gsap';
+import Seo from '../components/Seo';
 import { ArrowLeft, Newspaper } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -26,10 +26,11 @@ export default function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>{t('nav.articles')} | XR Services</title>
-        <meta name="description" content={t('articles.subtitle')} />
-      </Helmet>
+      <Seo
+        title={t('articles.metaTitle')}
+        description={t('articles.metaDescription')}
+        path="/blog"
+      />
 
       <div ref={ref}>
         <div className="bg-gradient-to-br from-[#0a1228] via-[#0f1c3f] to-[#1a2f5e] py-16 md:py-20">

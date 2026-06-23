@@ -103,7 +103,7 @@ export default function ServicesGrid() {
                 {image ? (
                   <img
                     src={image}
-                    alt={t(titleKey)}
+                    alt={t(`servicePage.items.${key}.imageAlt`, { defaultValue: t(titleKey) })}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (

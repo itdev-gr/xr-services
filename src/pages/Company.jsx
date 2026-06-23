@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft } from 'lucide-react';
@@ -81,10 +81,11 @@ export default function Company() {
 
   return (
     <>
-      <Helmet>
-        <title>{t('nav.company')} | XR Services</title>
-        <meta name="description" content={t('companyPage.metaDescription')} />
-      </Helmet>
+      <Seo
+        title={t('companyPage.metaTitle')}
+        description={t('companyPage.metaDescription')}
+        path="/company"
+      />
 
       <div ref={ref}>
         <div className="bg-gradient-to-br from-[#0a1228] via-[#0f1c3f] to-[#1a2f5e] py-16 md:py-20">

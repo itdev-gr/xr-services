@@ -75,6 +75,7 @@
   },
   "companyPage": {
     "backHome": "Back to Home",
+    "metaTitle": "Our Company",
     "metaDescription": "Learn more about XR Services — our vision, values, history and team.",
     "vision": {
       "p1": "At XR Services, our vision is to be the most trusted and strategic partner for every business, regardless of economic conditions at national or international level.",
@@ -120,7 +121,8 @@
     "title": "Accounting & Tax Services",
     "subtitle": "We handle the accounting and tax management of your business with precision, transparency and modern methods.",
     "cta": "Contact Us",
-    "ctaSecondary": "View Our Services"
+    "ctaSecondary": "View Our Services",
+    "imageAlt": "XR Services — accounting and tax services for businesses"
   },
   "quote": {
     "text": "The success of every business starts with the right decisions. We are here to give you the tools you need.",
@@ -175,6 +177,7 @@
     "items": {
       "accounting": {
         "metaDescription": "Comprehensive accounting services for businesses and professionals — XR Services.",
+        "imageAlt": "XR Services accounting services — bookkeeping and financial reporting",
         "intro": "We provide reliable accounting services with emphasis on accuracy, consistency and compliance with the current legislative framework.",
         "paragraphs": [
           "In a constantly changing business environment, proper bookkeeping is the foundation of every business decision. We handle your company's day-to-day accounting, ensuring reliable financial data and timely updates.",
@@ -192,6 +195,7 @@
       },
       "tax": {
         "metaDescription": "Tax services and tax compliance for businesses — XR Services.",
+        "imageAlt": "XR Services tax services — tax compliance and declarations",
         "intro": "The constantly changing tax environment requires experience, expertise and continuous updating.",
         "paragraphs": [
           "We provide comprehensive tax support, ensuring your company's compliance with current legislation and proper management of tax obligations.",
@@ -209,6 +213,7 @@
       },
       "consulting": {
         "metaDescription": "Business and financial consulting for growth and sustainability — XR Services.",
+        "imageAlt": "XR Services consulting — business and financial planning",
         "intro": "We combine accounting, tax and labor expertise with modern business consulting services.",
         "paragraphs": [
           "We support businesses at every stage of development — from business plan creation and growth strategy to organizational restructuring and operational optimization.",
@@ -226,6 +231,7 @@
       },
       "payroll": {
         "metaDescription": "Payroll, labor law and HR consulting services — XR Services.",
+        "imageAlt": "XR Services payroll — HR and labor law support",
         "intro": "Payroll and personnel management are a critical factor for every business's growth.",
         "paragraphs": [
           "We combine expertise in labor and payroll matters with HR consulting, helping businesses manage their most valuable asset: their people.",
@@ -243,6 +249,7 @@
       },
       "audit": {
         "metaDescription": "Support and preparation for tax audits — XR Services.",
+        "imageAlt": "XR Services tax audits — preparation and support",
         "intro": "Proper preparation is the most important tool against any tax audit.",
         "paragraphs": [
           "With years of experience in managing and supporting tax audits, we help businesses identify potential risks early and ensure compliance.",
@@ -292,6 +299,8 @@
   },
   "articles": {
     "title": "News",
+    "metaTitle": "News & Articles",
+    "metaDescription": "Tax and accounting news, updates and articles from XR Services.",
     "subtitle": "Stay informed about the latest developments in taxation and accounting",
     "emptyTitle": "Coming soon",
     "emptyMessage": "Our articles will appear here once the content management system is ready."
@@ -326,6 +335,8 @@
   },
   "contact": {
     "title": "Contact Us",
+    "metaTitle": "Contact",
+    "metaDescription": "Contact XR Services. Phone: +30 210 342 1331, Email: info@xr-services.gr, Keiriadon 25-27, Kato Petralona, Athens.",
     "subtitle": "We are here to answer any of your questions",
     "phone": "Phone",
     "email": "Email",

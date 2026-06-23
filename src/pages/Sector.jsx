@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { Link, Navigate, useParams } from 'react-router-dom';
+import Seo from '../components/Seo';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { isValidSectorSlug } from '../config/sectors';
 
@@ -24,10 +24,11 @@ export default function Sector() {
 
   return (
     <>
-      <Helmet>
-        <title>{title} | XR Services</title>
-        <meta name="description" content={metaDescription} />
-      </Helmet>
+      <Seo
+        title={title}
+        description={metaDescription}
+        path={`/sectors/${slug}`}
+      />
 
       <div>
         <div className="bg-gradient-to-br from-[#0a1228] via-[#0f1c3f] to-[#1a2f5e] py-14 md:py-18">

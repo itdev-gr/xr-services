@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import { gsap } from 'gsap';
 import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -65,10 +65,11 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Επικοινωνία | XR Services</title>
-        <meta name="description" content="Επικοινωνήστε με την XR Services. Τηλέφωνο: +30 210 342 1331, Email: info@xr-services.gr" />
-      </Helmet>
+      <Seo
+        title={t('contact.metaTitle')}
+        description={t('contact.metaDescription')}
+        path="/contact"
+      />
 
       <div ref={ref}>
         {/* Hero */}
