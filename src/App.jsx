@@ -7,7 +7,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import AnalyticsRouteTracker from './components/AnalyticsRouteTracker';
-import CookieBanner from './components/CookieBanner';
 import { initAnalytics } from './utils/analytics';
 
 const Blog = lazy(() => import('./pages/Blog'));
@@ -89,7 +88,6 @@ export default function App() {
           </main>
           <Footer />
         </div>
-        <CookieBanner />
         <DeferredWidgets />
       </BrowserRouter>
     </HelmetProvider>
