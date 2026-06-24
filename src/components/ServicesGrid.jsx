@@ -1,12 +1,8 @@
-import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLabels } from '../hooks/useLabels';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 
 import { getServiceImage } from '../config/services';
 import OptimizedImage from './OptimizedImage';
@@ -53,24 +49,7 @@ export default function ServicesGrid() {
   const { t } = useTranslation();
   const { tu } = useLabels();
   const navigate = useNavigate();
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(ref.current.querySelectorAll('.sg-card'), {
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 75%',
-        },
-      });
-    }, ref);
-    return () => ctx.revert();
-  }, []);
+  const ref = useRevealOnScroll('.sg-card', 100);
 
   return (
     <section id="services" ref={ref} className="py-12 md:py-20 bg-white">

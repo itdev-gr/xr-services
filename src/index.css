@@ -1,11 +1,8 @@
 @import "@fontsource/inter/greek-400.css";
-@import "@fontsource/inter/greek-500.css";
 @import "@fontsource/inter/greek-600.css";
 @import "@fontsource/inter/greek-700.css";
 @import "@fontsource/inter/greek-900.css";
 @import "@fontsource/inter/latin-400.css";
-@import "@fontsource/inter/latin-500.css";
-@import "@fontsource/inter/latin-600.css";
 @import "@fontsource/inter/latin-700.css";
 @import "@fontsource/inter/latin-900.css";
 @import "tailwindcss";
@@ -27,6 +24,12 @@
     overflow-x: clip;
   }
 
+  @media (max-width: 768px) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     @apply font-sans text-black antialiased overflow-x-clip;
   }
@@ -37,6 +40,14 @@
 
   * {
     @apply border-gray-200;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-item {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }
 
@@ -58,6 +69,25 @@
 
   .hero-fade-up-delay-2 {
     animation-delay: 0.3s;
+  }
+
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 640px;
   }
 }
 

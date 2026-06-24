@@ -1,31 +1,10 @@
-import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Quote } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 
 export default function QuoteBanner() {
   const { t } = useTranslation();
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(ref.current.querySelectorAll('.animate-item'), {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 80%',
-        },
-      });
-    }, ref);
-    return () => ctx.revert();
-  }, []);
+  const ref = useRevealOnScroll('.reveal-item', 120);
 
   return (
     <section
@@ -58,24 +37,24 @@ export default function QuoteBanner() {
       {/* Red accent line */}
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-[#c8102e] to-transparent" />
 
-      {/* Navy glow orbs */}
-      <div className="absolute top-1/3 left-[10%] w-96 h-96 bg-[#1e4a8a]/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-[8%] w-80 h-80 bg-[#0a2540]/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[320px] bg-[#1a3a6b]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Navy glow orbs — desktop only (blur is costly on mobile) */}
+      <div className="hidden md:block absolute top-1/3 left-[10%] w-96 h-96 bg-[#1e4a8a]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 right-[8%] w-80 h-80 bg-[#0a2540]/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[320px] bg-[#1a3a6b]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container-xl relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="animate-item flex justify-center mb-8">
+          <div className="reveal-item flex justify-center mb-8">
             <div className="w-16 h-16 bg-[#c8102e]/20 border border-[#c8102e]/40 rounded-2xl flex items-center justify-center">
               <Quote size={28} className="text-[#c8102e]" />
             </div>
           </div>
 
-          <blockquote className="animate-item text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-white leading-relaxed mb-6 sm:mb-8 tracking-tight text-balance px-1">
+          <blockquote className="reveal-item text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-white leading-relaxed mb-6 sm:mb-8 tracking-tight text-balance px-1">
             "{t('quote.text')}"
           </blockquote>
 
-          <div className="animate-item flex items-center justify-center gap-4">
+          <div className="reveal-item flex items-center justify-center gap-4">
             <div className="h-px w-12 bg-white/40" />
             <cite className="text-white text-sm font-semibold tracking-wider not-italic uppercase">
               {t('quote.author')}
@@ -84,7 +63,7 @@ export default function QuoteBanner() {
           </div>
 
           {/* Trust indicators */}
-          <div className="animate-item mt-10 sm:mt-16 grid grid-cols-3 gap-3 sm:gap-8 max-w-2xl mx-auto">
+          <div className="reveal-item mt-10 sm:mt-16 grid grid-cols-3 gap-3 sm:gap-8 max-w-2xl mx-auto">
             {[
               { num: '25+', text: 'Χρόνια στον κλάδο' },
               { num: '500+', text: 'Ικανοποιημένοι πελάτες' },

@@ -1,33 +1,16 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLabels } from '../hooks/useLabels';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 
 export default function ContactSection() {
   const { t } = useTranslation();
   const { tu } = useLabels();
-  const ref = useRef(null);
+  const ref = useRevealOnScroll('.reveal-item', 70);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(ref.current.querySelectorAll('.cs-animate'), {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: ref.current, start: 'top 90%' },
-      });
-    }, ref);
-    return () => ctx.revert();
-  }, []);
 
   const validate = () => {
     const errs = {};
@@ -56,7 +39,7 @@ export default function ContactSection() {
       <div className="container-xl">
 
         {/* Section label */}
-        <div className="cs-animate text-center mb-12">
+        <div className="reveal-item text-center mb-12">
           <div className="inline-flex items-center gap-2 text-[#c8102e] text-xs font-bold uppercase tracking-widest mb-3">
             <span className="w-8 h-px bg-[#c8102e]" />
             {tu('contact.title')}
@@ -69,7 +52,7 @@ export default function ContactSection() {
 
         {/* Form — centered */}
         <div className="max-w-2xl mx-auto">
-          <div className="cs-animate bg-white rounded-2xl border border-gray-100 p-7 md:p-10 shadow-sm">
+          <div className="reveal-item bg-white rounded-2xl border border-gray-100 p-7 md:p-10 shadow-sm">
 
             {status === 'success' ? (
               <div className="flex flex-col items-center gap-4 py-12 text-center">

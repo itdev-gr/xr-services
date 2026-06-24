@@ -18,15 +18,16 @@ const Legal = lazy(() => import('./pages/Legal'));
 const Sector = lazy(() => import('./pages/Sector'));
 const NotificationPrompt = lazy(() => import('./components/NotificationPrompt'));
 
-function LoadingFallback() {
+function RouteFallback() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="flex flex-col items-center gap-4">
-        <div className="w-12 h-12 border-4 border-gray-100 border-t-[#c8102e] rounded-full animate-spin" />
-        <span className="text-black text-sm font-medium">Φόρτωση...</span>
-      </div>
+    <div className="flex items-center justify-center py-24" aria-hidden="true">
+      <div className="w-10 h-10 border-4 border-gray-100 border-t-[#c8102e] rounded-full animate-spin" />
     </div>
   );
+}
+
+function LazyRoute({ children }) {
+  return <Suspense fallback={<RouteFallback />}>{children}</Suspense>;
 }
 
 function DeferredWidgets() {
@@ -34,11 +35,14 @@ function DeferredWidgets() {
 
   useEffect(() => {
     const show = () => setReady(true);
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const timeout = isMobile ? 1200 : 2500;
+
     if ('requestIdleCallback' in window) {
-      const id = window.requestIdleCallback(show, { timeout: 2500 });
+      const id = window.requestIdleCallback(show, { timeout });
       return () => window.cancelIdleCallback(id);
     }
-    const timer = window.setTimeout(show, 1500);
+    const timer = window.setTimeout(show, timeout);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -56,10 +60,10 @@ export default function App() {
   useEffect(() => {
     const loadAnalytics = () => { initAnalytics(); };
     if ('requestIdleCallback' in window) {
-      const id = window.requestIdleCallback(loadAnalytics, { timeout: 3000 });
+      const id = window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
       return () => window.cancelIdleCallback(id);
     }
-    const timer = window.setTimeout(loadAnalytics, 2000);
+    const timer = window.setTimeout(loadAnalytics, 3000);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -67,28 +71,26 @@ export default function App() {
     <HelmetProvider prioritizeSeoTags>
       <BrowserRouter>
         <AnalyticsRouteTracker />
-        <Suspense fallback={<LoadingFallback />}>
-          <div className="min-h-screen flex flex-col overflow-x-clip">
-            <Header />
-            <main className="flex-1 min-w-0 overflow-x-clip w-full">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/company" element={<Company />} />
-                <Route path="/company/:section" element={<Company />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/services/:slug" element={<Service />} />
-                <Route path="/privacy" element={<Legal page="privacy" />} />
-                <Route path="/cookies" element={<Legal page="cookies" />} />
-                <Route path="/terms" element={<Legal page="terms" />} />
-                <Route path="/sectors/:slug" element={<Sector />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-            <DeferredWidgets />
-          </div>
-        </Suspense>
+        <div className="min-h-screen flex flex-col overflow-x-clip">
+          <Header />
+          <main className="flex-1 min-w-0 overflow-x-clip w-full">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blog" element={<LazyRoute><Blog /></LazyRoute>} />
+              <Route path="/company" element={<LazyRoute><Company /></LazyRoute>} />
+              <Route path="/company/:section" element={<LazyRoute><Company /></LazyRoute>} />
+              <Route path="/contact" element={<LazyRoute><Contact /></LazyRoute>} />
+              <Route path="/services/:slug" element={<LazyRoute><Service /></LazyRoute>} />
+              <Route path="/privacy" element={<LazyRoute><Legal page="privacy" /></LazyRoute>} />
+              <Route path="/cookies" element={<LazyRoute><Legal page="cookies" /></LazyRoute>} />
+              <Route path="/terms" element={<LazyRoute><Legal page="terms" /></LazyRoute>} />
+              <Route path="/sectors/:slug" element={<LazyRoute><Sector /></LazyRoute>} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+          <DeferredWidgets />
+        </div>
       </BrowserRouter>
     </HelmetProvider>
   );

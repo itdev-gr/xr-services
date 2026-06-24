@@ -66,7 +66,7 @@ export default function Footer() {
   const { tu } = useLabels();
 
   return (
-    <footer className="bg-[#0d2137] text-white">
+    <footer className="bg-[#0d2137] text-white content-auto">
       <div className="container-xl py-14 lg:py-16">
         <div className="flex justify-center mb-10 lg:mb-12">
           <Link to="/" className="inline-block">
