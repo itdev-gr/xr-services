@@ -1,4 +1,5 @@
-import { chromium } from 'playwright';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium-min';
 import { spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import net from 'node:net';
@@ -81,9 +82,9 @@ async function waitForRouteReady(page, route) {
     { timeout: 45000 },
   );
 
-  await page.waitForSelector('h1', { state: 'visible', timeout: 15000 });
-  await page.waitForSelector('link[rel="canonical"]', { state: 'attached', timeout: 15000 });
-  await page.waitForSelector('script[type="application/ld+json"]', { state: 'attached', timeout: 15000 });
+  await page.waitForSelector('h1', { visible: true, timeout: 15000 });
+  await page.waitForSelector('link[rel="canonical"]', { timeout: 15000 });
+  await page.waitForSelector('script[type="application/ld+json"]', { timeout: 15000 });
 
   await page.waitForFunction(
     (expectedPath) => {
@@ -93,11 +94,10 @@ async function waitForRouteReady(page, route) {
       const normalized = expectedPath.replace(/\/$/, '') || '/';
       return pathname === normalized;
     },
-    route,
     { timeout: 30000 },
+    route,
   );
 
-  // Expand lazy-loaded homepage sections for richer static HTML
   if (route === '/') {
     await page.evaluate(async () => {
       window.scrollTo(0, document.body.scrollHeight);
@@ -109,7 +109,7 @@ async function waitForRouteReady(page, route) {
 
 async function prerenderRoute(page, baseUrl, route) {
   const url = `${baseUrl}${route === '/' ? '/' : route}`;
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+  await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
   await waitForRouteReady(page, route);
 
   const html = await page.content();
@@ -117,6 +117,32 @@ async function prerenderRoute(page, baseUrl, route) {
   mkdirSync(dirname(target), { recursive: true });
   writeFileSync(target, html, 'utf8');
   console.log(`  ✓ ${route} → ${target.replace(`${distDir}/`, '')}`);
+}
+
+async function launchBrowser() {
+  const isLocal = !process.env.VERCEL && !process.env.CI;
+
+  if (isLocal) {
+    const executablePath =
+      process.platform === 'darwin'
+        ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+        : process.platform === 'win32'
+          ? 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+          : 'google-chrome';
+
+    return puppeteer.launch({
+      headless: true,
+      executablePath,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+  }
+
+  return puppeteer.launch({
+    args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
+  });
 }
 
 async function main() {
@@ -127,7 +153,7 @@ async function main() {
   const server = await startPreviewServer(port);
   await waitForServer(baseUrl);
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchBrowser();
 
   const routes = [
     ...PRERENDER_PATHS.filter((path) => path !== '/'),
