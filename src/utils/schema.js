@@ -1,4 +1,15 @@
-import { SITE_URL, SITE_NAME } from '../config/site';
+import {
+  SITE_URL,
+  SITE_NAME,
+  BUSINESS_NAME,
+  BUSINESS_IMAGE,
+  BUSINESS_PHONE,
+  BUSINESS_PHONE_SECONDARY,
+  BUSINESS_EMAIL,
+  GBP_MAP_URL,
+  GEO_COORDINATES,
+  SOCIAL_PROFILES,
+} from '../config/site';
 
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -6,28 +17,31 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 export const organizationSchema = {
   '@type': ['Organization', 'AccountingService', 'LocalBusiness'],
   '@id': ORG_ID,
-  name: SITE_NAME,
+  name: BUSINESS_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/XRS-MAIN-9.svg`,
-  image: `${SITE_URL}/XRS-MAIN-9.svg`,
-  telephone: ['+302103421331', '+302103421862'],
-  email: 'info@xr-services.gr',
+  image: `${SITE_URL}${BUSINESS_IMAGE}`,
+  telephone: [BUSINESS_PHONE, BUSINESS_PHONE_SECONDARY],
+  email: BUSINESS_EMAIL,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Κειριαδών 25 - 27',
-    addressLocality: 'Κάτω Πετράλωνα',
+    streetAddress: 'Κειριαδών 25-27',
+    addressLocality: 'Κάτω Πετράλωνα, Αθήνα',
     addressRegion: 'Αττική',
+    postalCode: '118 54',
     addressCountry: 'GR',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: GEO_COORDINATES.latitude,
+    longitude: GEO_COORDINATES.longitude,
+  },
+  hasMap: GBP_MAP_URL,
   areaServed: {
     '@type': 'Country',
     name: 'Greece',
   },
-  sameAs: [
-    'https://www.facebook.com/XRServices/',
-    'https://www.instagram.com/xr_services/',
-    'https://www.linkedin.com/company/xr-services/',
-  ],
+  sameAs: SOCIAL_PROFILES,
   priceRange: '€€',
   knowsAbout: [
     'Λογιστικές υπηρεσίες',

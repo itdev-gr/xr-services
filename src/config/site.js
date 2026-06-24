@@ -3,7 +3,22 @@ import { SECTOR_SLUGS } from './sectors';
 
 export const SITE_URL = 'https://xr-services.gr';
 export const SITE_NAME = 'XR Services';
+export const BUSINESS_NAME = 'XR Services Χρονόπουλος & Συνεργάτες';
 export const DEFAULT_OG_IMAGE = '/XRS-MAIN-9.svg';
+export const BUSINESS_IMAGE = '/herosection.webp';
+export const BUSINESS_PHONE = '+302103421331';
+export const BUSINESS_PHONE_SECONDARY = '+302103421862';
+export const BUSINESS_EMAIL = 'info@xr-services.gr';
+export const GBP_MAP_URL = 'https://maps.google.com/?cid=6159868195840081792';
+export const GEO_COORDINATES = {
+  latitude: 37.9729921,
+  longitude: 23.7105594,
+};
+export const SOCIAL_PROFILES = [
+  'https://www.facebook.com/XRServices/',
+  'https://www.instagram.com/xr_services/',
+  'https://gr.linkedin.com/company/xr-services',
+];
 
 /** Static routes included in sitemap.xml */
 export const SITEMAP_ROUTES = [
