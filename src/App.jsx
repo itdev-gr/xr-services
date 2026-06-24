@@ -50,7 +50,6 @@ function DeferredWidgets() {
 
   return (
     <Suspense fallback={null}>
-      <CookieBanner />
       <NotificationPrompt />
     </Suspense>
   );
@@ -89,6 +88,7 @@ export default function App() {
             </Routes>
           </main>
           <Footer />
+          <CookieBanner />
           <DeferredWidgets />
         </div>
       </BrowserRouter>
