@@ -7,10 +7,12 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { isValidSectorSlug } from '../config/sectors';
 import { SITE_URL } from '../config/site';
 import { innerPageSchema, serviceSchema } from '../utils/schema';
+import { useLabels } from '../hooks/useLabels';
 
 export default function Sector() {
   const { slug } = useParams();
   const { t } = useTranslation();
+  const { tu } = useLabels();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -88,7 +90,7 @@ export default function Sector() {
                   to="/contact"
                   className="inline-flex items-center gap-2 bg-[#c8102e] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#a00d24] transition-colors text-sm uppercase tracking-wider"
                 >
-                  {t('sectorPage.ctaButton')}
+                  {tu('sectorPage.ctaButton')}
                   <ArrowRight size={16} />
                 </Link>
                 <Link

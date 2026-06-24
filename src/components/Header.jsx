@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { X, Phone, Mail, ChevronDown } from 'lucide-react';
 import LanguageSwitcher, { MobileLanguageSwitcher } from './LanguageSwitcher';
+import { useLabels } from '../hooks/useLabels';
 
 const SERVICE_ITEMS = [
   { key: 'accounting', href: '/services/accounting', labelKey: 'services.items.accounting.title' },
@@ -34,9 +35,6 @@ const NAV_ITEMS = [
       { key: 'values',     href: '/company#values',     labelKey: 'nav.companyItems.values' },
       { key: 'history',    href: '/company#history',    labelKey: 'nav.companyItems.history' },
       { key: 'people',     href: '/company#people',     labelKey: 'nav.companyItems.people' },
-      { key: 'careers',    href: '/company#careers',    labelKey: 'nav.companyItems.careers' },
-      { key: 'financials', href: '/company#financials', labelKey: 'nav.companyItems.financials' },
-      { key: 'network',    href: '/company#network',    labelKey: 'nav.companyItems.network' },
     ],
   },
   {
@@ -54,6 +52,7 @@ const NAV_ITEMS = [
 
 function MobileMenu({ open, onClose, items, onNavigate, mobileExpanded, setMobileExpanded }) {
   const { t } = useTranslation();
+  const { tu } = useLabels();
   const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
 
@@ -131,7 +130,7 @@ function MobileMenu({ open, onClose, items, onNavigate, mobileExpanded, setMobil
                             key={child.key}
                             className="pt-4 pb-1 text-xs font-bold uppercase tracking-wider text-[#c8102e]"
                           >
-                            {t(child.labelKey)}
+                            {tu(child.labelKey)}
                           </p>
                         );
                       }
@@ -214,6 +213,7 @@ function SectorMenuGrid({ items, onNavigate, t }) {
 
 function ServicesMegaMenu({ onNavigate }) {
   const { t } = useTranslation();
+  const { tu } = useLabels();
 
   return (
     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
@@ -222,7 +222,7 @@ function ServicesMegaMenu({ onNavigate }) {
           {/* Main services */}
           <div className="bg-gradient-to-br from-gray-50 to-white p-6 border-r border-gray-100">
             <p className="text-xs font-bold uppercase tracking-wider text-[#c8102e] mb-4">
-              {t('nav.servicesMega.servicesTitle')}
+              {tu('nav.servicesMega.servicesTitle')}
             </p>
             <div className="space-y-0.5">
               {SERVICE_ITEMS.map((item) => (
@@ -239,7 +239,7 @@ function ServicesMegaMenu({ onNavigate }) {
           {/* Specialization sectors */}
           <div className="p-6">
             <p className="text-xs font-bold uppercase tracking-wider text-[#c8102e] mb-4">
-              {t('nav.servicesMega.sectorsTitle')}
+              {tu('nav.servicesMega.sectorsTitle')}
             </p>
             <SectorMenuGrid items={SECTOR_ITEMS} onNavigate={onNavigate} t={t} />
           </div>
@@ -281,6 +281,7 @@ function DropdownMenu({ items, parentKey, onNavigate }) {
 
 export default function Header() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
   const navigate = useNavigate();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
@@ -419,10 +420,11 @@ export default function Header() {
               <LanguageSwitcher />
             </div>
             <a
-              href="tel:+302103421331"
+              href="/contact"
+              onClick={(e) => { e.preventDefault(); handleNavClick('/contact', true); }}
               className="hidden md:inline-flex items-center gap-2 bg-[#c8102e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#a00d24] transition-colors duration-200 uppercase tracking-wide"
             >
-              {t('hero.cta')}
+              {tu('hero.cta')}
             </a>
             <button
               type="button"

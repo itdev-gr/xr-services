@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 import Seo from '../components/Seo';
 import { homePageSchema } from '../utils/schema';
 import Hero from '../components/Hero';
+import ServicesGrid from '../components/ServicesGrid';
 import { lazy, Suspense } from 'react';
 
 const AboutSection = lazy(() => import('../components/AboutSection'));
 
 const QuoteBanner = lazy(() => import('../components/QuoteBanner'));
-const ServicesGrid = lazy(() => import('../components/ServicesGrid'));
 const Newsletter = lazy(() => import('../components/Newsletter'));
 const ContactSection = lazy(() => import('../components/ContactSection'));
 
@@ -34,7 +34,9 @@ export default function Home() {
       <Suspense fallback={<SectionFallback />}>
         <AboutSection />
         <QuoteBanner />
-        <ServicesGrid />
+      </Suspense>
+      <ServicesGrid />
+      <Suspense fallback={<SectionFallback />}>
         <Newsletter />
         <ContactSection />
       </Suspense>

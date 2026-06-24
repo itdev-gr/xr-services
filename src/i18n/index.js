@@ -12,7 +12,7 @@ const lazyLocales = {
   it: () => import('./locales/it.json'),
 };
 
-async function ensureLocale(lng) {
+export async function ensureLocale(lng) {
   if (lng === 'el' || i18n.hasResourceBundle(lng, 'translation')) return;
   const loader = lazyLocales[lng];
   if (!loader) return;

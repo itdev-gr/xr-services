@@ -8,10 +8,12 @@ import { isValidServiceSlug, getServiceImage } from '../config/services';
 import OptimizedImage from '../components/OptimizedImage';
 import { SITE_URL } from '../config/site';
 import { innerPageSchema, serviceSchema } from '../utils/schema';
+import { useLabels } from '../hooks/useLabels';
 
 export default function Service() {
   const { slug } = useParams();
   const { t } = useTranslation();
+  const { tu } = useLabels();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,7 +68,7 @@ export default function Service() {
             <nav className="flex flex-wrap items-center gap-x-2 gap-y-1 text-white/50 text-sm mb-5">
               <Link to="/" className="hover:text-white transition-colors">{t('nav.home')}</Link>
               <span>/</span>
-              <Link to="/#services-grid" className="hover:text-white transition-colors">
+              <Link to="/#services" className="hover:text-white transition-colors">
                 {t('servicePage.breadcrumbServices')}
               </Link>
               <span>/</span>
@@ -110,7 +112,7 @@ export default function Service() {
               {includeList.length > 0 && (
                 <div className="mt-12 pt-10 border-t border-gray-100">
                   <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f1c3f] mb-6">
-                    {t('servicePage.includesTitle')}
+                    {tu('servicePage.includesTitle')}
                   </h2>
                   <ul className="space-y-3">
                     {includeList.map((item) => (
@@ -134,14 +136,14 @@ export default function Service() {
                   to="/contact"
                   className="inline-flex items-center gap-2 bg-[#c8102e] text-white font-bold px-7 py-3.5 rounded-xl hover:bg-[#a00d24] transition-colors uppercase text-sm tracking-wider"
                 >
-                  {t('servicePage.ctaButton')}
+                  {tu('servicePage.ctaButton')}
                   <ArrowRight size={16} />
                 </Link>
               </div>
 
               <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Link
-                  to="/#services-grid"
+                  to="/#services"
                   className="inline-flex items-center gap-2 text-[#0f1c3f] font-semibold hover:text-[#c8102e] transition-colors text-sm"
                 >
                   <ArrowLeft size={16} />

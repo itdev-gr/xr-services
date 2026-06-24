@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Briefcase, TrendingUp, MessageCircle, GraduationCap } from 'lucide-react';
+import { useLabels } from '../hooks/useLabels';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,7 @@ const WHY_ITEMS = [
 
 export default function AboutSection() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
   const ref = useRef(null);
 
   useEffect(() => {
@@ -76,7 +78,7 @@ export default function AboutSection() {
           <div className="about-left min-w-0 w-full">
             <div className="inline-flex items-center gap-2 text-[#c8102e] text-[11px] sm:text-xs font-bold uppercase tracking-widest mb-3">
               <span className="w-8 h-px bg-[#c8102e]" />
-              {t('about.tagline')}
+              {tu('about.tagline')}
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0f1c3f] mb-2 tracking-tight text-balance">
               {t('about.title')}
@@ -126,7 +128,7 @@ export default function AboutSection() {
                     {t(valueKey)}
                   </div>
                   <div className="text-[9px] sm:text-[10px] lg:text-xs font-semibold uppercase tracking-wide text-black leading-tight">
-                    {t(labelKey)}
+                    {tu(labelKey)}
                   </div>
                 </div>
               ))}
@@ -137,7 +139,7 @@ export default function AboutSection() {
               onClick={(e) => { e.preventDefault(); window.location.href = '/company'; }}
               className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-[#c8102e] text-white font-bold px-5 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 rounded-xl hover:bg-[#a00d24] transition-colors duration-200 uppercase text-xs sm:text-sm tracking-wider"
             >
-              {t('about.cta')}
+              {tu('about.cta')}
               <ArrowRight size={16} />
             </a>
           </div>
@@ -146,7 +148,7 @@ export default function AboutSection() {
           <div className="min-w-0 w-full">
             <div className="inline-flex items-center gap-2 text-[#c8102e] text-[11px] sm:text-xs font-bold uppercase tracking-widest mb-3">
               <span className="w-8 h-px bg-[#c8102e]" />
-              {t('about.whyTagline')}
+              {tu('about.whyTagline')}
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0f1c3f] mb-2 tracking-tight text-balance">
               {t('about.whyTitle')}
@@ -161,7 +163,7 @@ export default function AboutSection() {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-black text-[#0f1c3f] text-xs sm:text-sm uppercase tracking-wide sm:tracking-wider mb-1.5 text-balance">
-                      {t(titleKey)}
+                      {tu(titleKey)}
                     </h3>
                     <p className="text-black text-[13px] sm:text-sm md:text-base leading-relaxed">
                       {t(descKey)}

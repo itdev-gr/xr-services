@@ -3,11 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useLabels } from '../hooks/useLabels';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactSection() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
   const ref = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('idle');
@@ -57,7 +59,7 @@ export default function ContactSection() {
         <div className="cs-animate text-center mb-12">
           <div className="inline-flex items-center gap-2 text-[#c8102e] text-xs font-bold uppercase tracking-widest mb-3">
             <span className="w-8 h-px bg-[#c8102e]" />
-            {t('contact.title')}
+            {tu('contact.title')}
             <span className="w-8 h-px bg-[#c8102e]" />
           </div>
           <p className="text-black w-full text-center font-semibold leading-snug text-balance px-2 sm:px-0 text-base sm:text-lg md:text-xl lg:text-[1.35rem] lg:whitespace-nowrap">
@@ -85,7 +87,7 @@ export default function ContactSection() {
                   {/* Name */}
                   <div>
                     <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
-                      {t('contact.form.name')} <span className="text-[#c8102e]">*</span>
+                      {tu('contact.form.name')} <span className="text-[#c8102e]">*</span>
                     </label>
                     <input
                       type="text"
@@ -100,7 +102,7 @@ export default function ContactSection() {
                   {/* Email */}
                   <div>
                     <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
-                      {t('contact.form.email')} <span className="text-[#c8102e]">*</span>
+                      {tu('contact.form.email')} <span className="text-[#c8102e]">*</span>
                     </label>
                     <input
                       type="email"
@@ -116,7 +118,7 @@ export default function ContactSection() {
                 {/* Phone */}
                 <div>
                   <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
-                    {t('contact.form.phone')}
+                    {tu('contact.form.phone')}
                   </label>
                   <input
                     type="tel"
@@ -130,7 +132,7 @@ export default function ContactSection() {
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-bold text-black uppercase tracking-wider mb-1.5">
-                    {t('contact.form.message')} <span className="text-[#c8102e]">*</span>
+                    {tu('contact.form.message')} <span className="text-[#c8102e]">*</span>
                   </label>
                   <textarea
                     value={form.message}
@@ -151,7 +153,7 @@ export default function ContactSection() {
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   ) : (
                     <>
-                      {t('contact.form.submit')}
+                      {tu('contact.form.submit')}
                       <Send size={15} />
                     </>
                   )}

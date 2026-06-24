@@ -26,9 +26,6 @@ const COMPANY_SECTIONS = new Set([
   'values',
   'history',
   'people',
-  'careers',
-  'financials',
-  'network',
 ]);
 
 function isValidPath(pathname) {

@@ -16,9 +16,6 @@ export const COMPANY_SECTIONS = new Set([
   'values',
   'history',
   'people',
-  'careers',
-  'financials',
-  'network',
 ]);
 
 export function isValidPath(pathname) {

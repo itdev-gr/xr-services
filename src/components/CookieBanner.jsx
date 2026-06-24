@@ -3,9 +3,11 @@ import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { grantAnalyticsConsent, hasAnalyticsConsent } from '../utils/analytics';
+import { useLabels } from '../hooks/useLabels';
 
 export default function CookieBanner() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
   const [visible, setVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -58,7 +60,7 @@ export default function CookieBanner() {
             onClick={handleAccept}
             className="shrink-0 self-start md:self-auto bg-[#c8102e] hover:bg-[#a00d24] text-white font-bold text-sm px-6 py-2.5 rounded-md transition-colors duration-200 uppercase tracking-wide"
           >
-            {t('cookieBanner.accept')}
+            {tu('cookieBanner.accept')}
           </button>
         </div>
       </div>

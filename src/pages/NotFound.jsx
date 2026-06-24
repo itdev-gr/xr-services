@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import { useLabels } from '../hooks/useLabels';
 
 export default function NotFound() {
-  const { t } = useTranslation();
+  const { tu } = useLabels();
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function NotFound() {
             to="/"
             className="inline-flex items-center justify-center bg-[#c8102e] text-white font-bold px-8 py-3.5 rounded-xl hover:bg-[#a00d24] transition-colors uppercase text-sm tracking-wider"
           >
-            {t('nav.home')}
+            {tu('nav.home')}
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Phone, ChevronRight } from 'lucide-react';
 import FundingBanners from './FundingBanners';
+import { useLabels } from '../hooks/useLabels';
 
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -62,6 +63,7 @@ function FooterLink({ href, children, onClick }) {
 
 export default function Footer() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
 
   return (
     <footer className="bg-[#0d2137] text-white">
@@ -101,7 +103,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-white mb-2">
-              {t('footer.phoneLine')}
+              {tu('footer.phoneLine')}
             </p>
             <a
               href="tel:+302103421331"
@@ -130,7 +132,7 @@ export default function Footer() {
           {/* Column 2 — Company */}
           <div className="text-center xl:text-left">
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
-              {t('footer.company')}
+              {tu('footer.company')}
             </h4>
             <ul className="space-y-3">
               {COMPANY_LINKS.map(({ key, href, labelKey }) => (
@@ -144,7 +146,7 @@ export default function Footer() {
           {/* Column 3 — Services */}
           <div className="text-center xl:text-left">
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
-              {t('footer.servicesTitle')}
+              {tu('footer.servicesTitle')}
             </h4>
             <ul className="space-y-3">
               {SERVICE_KEYS.map((key) => (
@@ -160,7 +162,7 @@ export default function Footer() {
           {/* Column 4 — Certifications & Legal */}
           <div className="text-center xl:text-left">
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
-              {t('footer.certifications')}
+              {tu('footer.certifications')}
             </h4>
             <div className="flex flex-wrap items-center justify-center xl:justify-start gap-4 mb-8 mx-auto xl:mx-0 max-w-fit">
               <div className="bg-white rounded-lg px-3 py-2.5 flex items-center justify-center">
@@ -180,7 +182,7 @@ export default function Footer() {
             </div>
 
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-5">
-              {t('footer.legal')}
+              {tu('footer.legal')}
             </h4>
             <ul className="space-y-3">
               <li><FooterLink href="/privacy">{t('footer.privacy')}</FooterLink></li>

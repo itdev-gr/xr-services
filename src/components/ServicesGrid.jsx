@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useLabels } from '../hooks/useLabels';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,6 +51,7 @@ const SERVICES = [
 
 export default function ServicesGrid() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
   const navigate = useNavigate();
   const ref = useRef(null);
 
@@ -71,12 +73,12 @@ export default function ServicesGrid() {
   }, []);
 
   return (
-    <section id="services-grid" ref={ref} className="py-12 md:py-20 bg-white">
+    <section id="services" ref={ref} className="py-12 md:py-20 bg-white">
       <div className="w-full max-w-[100rem] mx-auto px-3 sm:px-4 lg:px-5">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 text-[#c8102e] text-xs font-bold uppercase tracking-widest mb-4">
             <span className="w-8 h-px bg-[#c8102e]" />
-            {t('services.title')}
+            {tu('services.title')}
             <span className="w-8 h-px bg-[#c8102e]" />
           </div>
           <p className="text-[#0f1c3f] w-full text-center font-semibold leading-snug text-balance px-2 sm:px-0 text-base sm:text-lg md:text-xl lg:text-[1.35rem] lg:whitespace-nowrap">

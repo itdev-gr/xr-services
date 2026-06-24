@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronDown } from 'lucide-react';
+import { ensureLocale } from '../i18n';
 
 export const LANGUAGES = [
   { code: 'el', label: 'EL', flag: '🇬🇷', name: 'Ελληνικά' },
@@ -26,8 +27,9 @@ export function MobileLanguageSwitcher({ onChange }) {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const handleChange = (code) => {
-    i18n.changeLanguage(code);
+  const handleChange = async (code) => {
+    await ensureLocale(code);
+    await i18n.changeLanguage(code);
     setOpen(false);
     onChange?.();
   };
@@ -87,8 +89,9 @@ export default function LanguageSwitcher({ dark = false }) {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const handleChange = (code) => {
-    i18n.changeLanguage(code);
+  const handleChange = async (code) => {
+    await ensureLocale(code);
+    await i18n.changeLanguage(code);
     setOpen(false);
   };
 

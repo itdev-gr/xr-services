@@ -1,12 +1,20 @@
 import { useTranslation } from 'react-i18next';
 import OptimizedImage from './OptimizedImage';
+import { useLabels } from '../hooks/useLabels';
 
 export default function Hero() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
 
   const scrollToServices = (e) => {
     e.preventDefault();
-    document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' });
+    const scroll = () => {
+      document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    scroll();
+    if (!document.querySelector('#services')) {
+      window.setTimeout(scroll, 150);
+    }
   };
 
   return (
@@ -40,7 +48,7 @@ export default function Hero() {
               onClick={scrollToServices}
               className="inline-flex items-center justify-center gap-2 bg-[#c8102e] text-white font-bold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl hover:bg-[#a00d24] transition-all duration-200 hover:-translate-y-0.5 uppercase tracking-wide text-sm sm:text-base"
             >
-              {t('hero.ctaSecondary')}
+              {tu('hero.ctaSecondary')}
             </a>
           </div>
         </div>

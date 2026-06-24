@@ -6,9 +6,11 @@ import { SITE_URL } from '../config/site';
 import { innerPageSchema } from '../utils/schema';
 import { gsap } from 'gsap';
 import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useLabels } from '../hooks/useLabels';
 
 export default function Contact() {
   const { t } = useTranslation();
+  const { tu } = useLabels();
   const ref = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle');
@@ -119,7 +121,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-xs font-bold text-black uppercase tracking-widest mb-2">
-                        {t('contact.address')}
+                        {tu('contact.address')}
                       </div>
                       <div className="text-[#0f1c3f] font-bold text-lg leading-snug">
                         Κειριαδών 25 - 27<br />
@@ -135,7 +137,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-xs font-bold text-black uppercase tracking-widest mb-2">
-                        {t('contact.phone')}
+                        {tu('contact.phone')}
                       </div>
                       <a href="tel:+302103421331" className="block text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">
                         +30 210 342 1331
@@ -153,7 +155,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-xs font-bold text-black uppercase tracking-widest mb-2">
-                        {t('contact.email')}
+                        {tu('contact.email')}
                       </div>
                       <a href="mailto:info@xr-services.gr" className="text-[#0f1c3f] font-bold text-lg hover:text-[#c8102e] transition-colors">
                         info@xr-services.gr
@@ -249,7 +251,7 @@ export default function Contact() {
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       ) : (
                         <>
-                          {t('contact.form.submit')}
+                          {tu('contact.form.submit')}
                           <Send size={15} />
                         </>
                       )}

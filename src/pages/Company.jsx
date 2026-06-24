@@ -17,9 +17,6 @@ const SECTIONS = [
   { id: 'values', type: 'values' },
   { id: 'history', type: 'paragraphs', keys: ['p1', 'p2', 'p3', 'p4'] },
   { id: 'people', type: 'paragraphs', keys: ['p1', 'p2', 'p3', 'p4'] },
-  { id: 'careers', type: 'content' },
-  { id: 'financials', type: 'content' },
-  { id: 'network', type: 'content' },
 ];
 
 function SectionContent({ section, t }) {
