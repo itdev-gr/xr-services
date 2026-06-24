@@ -137,12 +137,13 @@ async function launchBrowser() {
     });
   }
 
-  const packUrl = `https://github.com/Sparticuz/chromium/releases/download/v${chromium.revision}/chromium-v${chromium.revision}-pack.tar`;
+  const chromiumPack =
+    'https://github.com/Sparticuz/chromium/releases/download/v133.0.0/chromium-v133.0.0-pack.tar';
 
   return puppeteer.launch({
     args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
     defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath(packUrl),
+    executablePath: await chromium.executablePath(chromiumPack),
     headless: chromium.headless,
   });
 }
