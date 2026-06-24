@@ -67,16 +67,16 @@ export async function grantAnalyticsConsent() {
     // ignore storage errors
   }
 
-  await initAnalytics();
-
-  if (typeof window.gtag === 'function') {
-    window.gtag('consent', 'update', {
-      analytics_storage: 'granted',
-    });
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      page_path: window.location.pathname + window.location.search,
-    });
-  }
+  void initAnalytics().then(() => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'granted',
+      });
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        page_path: window.location.pathname + window.location.search,
+      });
+    }
+  });
 }
 
 export function trackPageView(path) {

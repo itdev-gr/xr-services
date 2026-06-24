@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { Bell, X, CheckCircle } from 'lucide-react';
 import { subscribeToMailchimp } from '../utils/mailchimp';
+import { hasAnalyticsConsent } from '../utils/analytics';
 
 const STORAGE_KEY = 'xr-notification-prompt';
 const DISMISS_DAYS = 7;
@@ -19,6 +20,7 @@ function getStoredState() {
 
 function shouldShowPrompt() {
   if (typeof window === 'undefined') return false;
+  if (!hasAnalyticsConsent()) return false;
 
   const stored = getStoredState();
   if (stored?.subscribed) return false;

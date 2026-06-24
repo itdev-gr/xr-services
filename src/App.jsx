@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import AnalyticsRouteTracker from './components/AnalyticsRouteTracker';
+import CookieBanner from './components/CookieBanner';
 import { initAnalytics } from './utils/analytics';
 
 const Blog = lazy(() => import('./pages/Blog'));
@@ -15,7 +16,6 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Service = lazy(() => import('./pages/Service'));
 const Legal = lazy(() => import('./pages/Legal'));
 const Sector = lazy(() => import('./pages/Sector'));
-const CookieBanner = lazy(() => import('./components/CookieBanner'));
 const NotificationPrompt = lazy(() => import('./components/NotificationPrompt'));
 
 function LoadingFallback() {

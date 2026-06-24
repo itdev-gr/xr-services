@@ -18,10 +18,10 @@ export default function CookieBanner() {
     requestAnimationFrame(() => setMounted(true));
   }, []);
 
-  const handleAccept = async () => {
-    await grantAnalyticsConsent();
+  const handleAccept = () => {
     setMounted(false);
     window.setTimeout(() => setVisible(false), 250);
+    void grantAnalyticsConsent();
   };
 
   if (!visible || typeof document === 'undefined') return null;
@@ -31,7 +31,7 @@ export default function CookieBanner() {
       role="dialog"
       aria-live="polite"
       aria-label={t('cookieBanner.ariaLabel')}
-      className={`fixed bottom-0 left-0 right-0 z-[10000] border-t border-white/10 bg-[#0f1c3f] shadow-[0_-8px_30px_rgba(0,0,0,0.25)] transition-transform duration-300 ease-out ${
+      className={`fixed bottom-0 left-0 right-0 z-[10000] border-t border-white/10 bg-[#0f1c3f] shadow-[0_-8px_30px_rgba(0,0,0,0.25)] transition-transform duration-300 ease-out pb-[env(safe-area-inset-bottom,0px)] ${
         mounted ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
@@ -43,7 +43,7 @@ export default function CookieBanner() {
         }}
       />
 
-      <div className="container-xl relative py-4 md:py-5">
+      <div className="container-xl relative z-10 py-4 md:py-5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
           <p className="text-white text-sm sm:text-[15px] leading-relaxed md:pr-6">
             {t('cookieBanner.message')}{' '}
@@ -58,7 +58,7 @@ export default function CookieBanner() {
           <button
             type="button"
             onClick={handleAccept}
-            className="shrink-0 self-start md:self-auto bg-[#c8102e] hover:bg-[#a00d24] text-white font-bold text-sm px-6 py-2.5 rounded-md transition-colors duration-200 uppercase tracking-wide"
+            className="relative z-10 shrink-0 w-full sm:w-auto min-h-12 sm:min-h-0 self-stretch sm:self-auto bg-[#c8102e] hover:bg-[#a00d24] active:bg-[#a00d24] text-white font-bold text-sm px-6 py-3 sm:py-2.5 rounded-md transition-colors duration-200 uppercase tracking-wide touch-manipulation cursor-pointer"
           >
             {tu('cookieBanner.accept')}
           </button>
