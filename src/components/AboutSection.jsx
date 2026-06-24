@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Briefcase, TrendingUp, MessageCircle, GraduationCap } from 'lucide-react';
 import { useLabels } from '../hooks/useLabels';
+import OptimizedImage from './OptimizedImage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,23 +86,15 @@ export default function AboutSection() {
             </h2>
             <div className="w-12 h-1 bg-[#c8102e] rounded mb-5" />
 
-            {/* Premium logo showcase */}
-            <div className="relative w-full max-w-[240px] sm:max-w-[280px] lg:max-w-none mb-5 lg:mb-6 rounded-xl lg:rounded-2xl overflow-hidden border border-gray-100/80 shadow-[0_12px_32px_rgba(15,28,63,0.07)] lg:shadow-[0_16px_48px_rgba(15,28,63,0.08)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-[#eef2f7]" />
-              <div
-                className="absolute inset-0 opacity-[0.35]"
-                style={{
-                  backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(200,16,46,0.06) 0%, transparent 50%), radial-gradient(circle at 70% 80%, rgba(15,28,63,0.08) 0%, transparent 45%)',
-                }}
+            {/* Office photo */}
+            <div className="relative w-full mb-5 lg:mb-6 rounded-xl lg:rounded-2xl overflow-hidden border border-gray-100/80 shadow-[0_12px_32px_rgba(15,28,63,0.07)] lg:shadow-[0_16px_48px_rgba(15,28,63,0.08)]">
+              <OptimizedImage
+                src="/xrs-etaireia.png"
+                alt={t('about.imageAlt')}
+                className="w-full aspect-[4/3] object-cover"
+                width={1200}
+                height={900}
               />
-              <div className="relative px-6 py-7 lg:px-8 lg:py-10 flex items-center justify-center">
-                <img
-                  src="/XRS-MAIN-9.svg"
-                  alt="XR Services"
-                  className="w-full max-w-[200px] sm:max-w-[220px] lg:max-w-[300px] h-auto object-contain drop-shadow-[0_6px_18px_rgba(15,28,63,0.1)] lg:drop-shadow-[0_8px_24px_rgba(15,28,63,0.12)]"
-                  style={{ imageRendering: '-webkit-optimize-contrast' }}
-                />
-              </div>
               <div className="h-1 bg-gradient-to-r from-[#0f1c3f] via-[#c8102e] to-[#0f1c3f]" />
             </div>
 
