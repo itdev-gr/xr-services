@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
+import NotFound from './NotFound';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { isValidServiceSlug, getServiceImage } from '../config/services';
 import OptimizedImage from '../components/OptimizedImage';
+import { SITE_URL } from '../config/site';
+import { innerPageSchema, serviceSchema } from '../utils/schema';
 
 export default function Service() {
   const { slug } = useParams();
@@ -15,8 +18,10 @@ export default function Service() {
   }, [slug]);
 
   if (!isValidServiceSlug(slug)) {
-    return <Navigate to="/#services-grid" replace />;
+    return <NotFound />;
   }
+
+  const pagePath = `/services/${slug}`;
 
   const title = t(`services.items.${slug}.title`);
   const metaDescription = t(`servicePage.items.${slug}.metaDescription`);
@@ -33,8 +38,26 @@ export default function Service() {
       <Seo
         title={title}
         description={metaDescription}
-        path={`/services/${slug}`}
+        path={pagePath}
         ogImage={image ?? undefined}
+        jsonLd={innerPageSchema({
+          title: `${title} | XR Services`,
+          description: metaDescription,
+          path: pagePath,
+          breadcrumbs: [
+            { name: t('nav.home'), url: SITE_URL },
+            { name: t('servicePage.breadcrumbServices'), url: SITE_URL },
+            { name: title, url: `${SITE_URL}${pagePath}` },
+          ],
+          extra: [
+            serviceSchema({
+              name: title,
+              description: metaDescription,
+              url: `${SITE_URL}${pagePath}`,
+              image,
+            }),
+          ],
+        })}
       />
 
       <div>

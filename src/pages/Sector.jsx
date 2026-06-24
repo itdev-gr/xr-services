@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Seo from '../components/Seo';
+import NotFound from './NotFound';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { isValidSectorSlug } from '../config/sectors';
+import { SITE_URL } from '../config/site';
+import { innerPageSchema, serviceSchema } from '../utils/schema';
 
 export default function Sector() {
   const { slug } = useParams();
@@ -14,8 +17,10 @@ export default function Sector() {
   }, [slug]);
 
   if (!isValidSectorSlug(slug)) {
-    return <Navigate to="/" replace />;
+    return <NotFound />;
   }
+
+  const pagePath = `/sectors/${slug}`;
 
   const title = t(`nav.sectorItems.${slug}`);
   const metaDescription = t(`sectorPage.items.${slug}.metaDescription`);
@@ -27,7 +32,24 @@ export default function Sector() {
       <Seo
         title={title}
         description={metaDescription}
-        path={`/sectors/${slug}`}
+        path={pagePath}
+        jsonLd={innerPageSchema({
+          title: `${title} | XR Services`,
+          description: metaDescription,
+          path: pagePath,
+          breadcrumbs: [
+            { name: t('nav.home'), url: SITE_URL },
+            { name: t('sectorPage.breadcrumbSectors'), url: SITE_URL },
+            { name: title, url: `${SITE_URL}${pagePath}` },
+          ],
+          extra: [
+            serviceSchema({
+              name: title,
+              description: metaDescription,
+              url: `${SITE_URL}${pagePath}`,
+            }),
+          ],
+        })}
       />
 
       <div>

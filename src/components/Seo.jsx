@@ -1,16 +1,21 @@
 import { Helmet } from 'react-helmet-async';
-import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from '../config/site';
+import { useLocation } from 'react-router-dom';
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, absoluteUrl } from '../config/site';
 
 export default function Seo({
   title,
   description,
-  path = '',
+  path,
   ogImage = DEFAULT_OG_IMAGE,
   noindex = false,
+  jsonLd = null,
 }) {
-  const canonical = path === '/' || !path ? SITE_URL : `${SITE_URL}${path}`;
+  const location = useLocation();
+  const resolvedPath = path ?? location.pathname;
+  const canonical = absoluteUrl(resolvedPath);
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
+  const schemaPayload = jsonLd ? JSON.stringify(jsonLd) : null;
 
   return (
     <Helmet>
@@ -33,6 +38,9 @@ export default function Seo({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImageUrl} />
+      {schemaPayload && (
+        <script type="application/ld+json">{schemaPayload}</script>
+      )}
     </Helmet>
   );
 }

@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import Seo from '../components/Seo';
+import { SITE_URL } from '../config/site';
+import { innerPageSchema } from '../utils/schema';
 import { ArrowLeft, Newspaper } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -30,6 +32,15 @@ export default function Blog() {
         title={t('articles.metaTitle')}
         description={t('articles.metaDescription')}
         path="/blog"
+        jsonLd={innerPageSchema({
+          title: `${t('articles.metaTitle')} | XR Services`,
+          description: t('articles.metaDescription'),
+          path: '/blog',
+          breadcrumbs: [
+            { name: t('nav.home'), url: SITE_URL },
+            { name: t('articles.metaTitle'), url: `${SITE_URL}/blog` },
+          ],
+        })}
       />
 
       <div ref={ref}>

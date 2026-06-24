@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Seo from '../components/Seo';
+import { homePageSchema } from '../utils/schema';
 import Hero from '../components/Hero';
 import { lazy, Suspense } from 'react';
 
@@ -23,6 +24,10 @@ export default function Home() {
         title={t('seo.title')}
         description={t('seo.description')}
         path="/"
+        jsonLd={homePageSchema({
+          title: t('seo.title'),
+          description: t('seo.description'),
+        })}
       />
 
       <Hero />

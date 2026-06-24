@@ -5,6 +5,7 @@ import './i18n';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import AnalyticsRouteTracker from './components/AnalyticsRouteTracker';
 import { initAnalytics } from './utils/analytics';
 
@@ -63,7 +64,7 @@ export default function App() {
   }, []);
 
   return (
-    <HelmetProvider>
+    <HelmetProvider prioritizeSeoTags>
       <BrowserRouter>
         <AnalyticsRouteTracker />
         <Suspense fallback={<LoadingFallback />}>
@@ -81,6 +82,7 @@ export default function App() {
                 <Route path="/cookies" element={<Legal page="cookies" />} />
                 <Route path="/terms" element={<Legal page="terms" />} />
                 <Route path="/sectors/:slug" element={<Sector />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />

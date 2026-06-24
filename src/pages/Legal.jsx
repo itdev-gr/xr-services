@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, Navigate } from 'react-router-dom';
 import Seo from '../components/Seo';
+import { SITE_URL } from '../config/site';
+import { innerPageSchema } from '../utils/schema';
 import { ArrowLeft } from 'lucide-react';
 import { isValidLegalPage } from '../config/legal';
 
@@ -23,12 +25,24 @@ export default function Legal({ page }) {
   const sections = t(`legalPages.${page}.sections`, { returnObjects: true });
   const sectionList = Array.isArray(sections) ? sections : [];
 
+  const pagePath = `/${page}`;
+
   return (
     <>
       <Seo
         title={title}
         description={metaDescription}
-        path={`/${page}`}
+        path={pagePath}
+        jsonLd={innerPageSchema({
+          title: `${title} | XR Services`,
+          description: metaDescription,
+          path: pagePath,
+          breadcrumbs: [
+            { name: t('nav.home'), url: SITE_URL },
+            { name: t('legalPages.common.breadcrumbLegal'), url: SITE_URL },
+            { name: title, url: `${SITE_URL}${pagePath}` },
+          ],
+        })}
       />
 
       <div>

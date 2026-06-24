@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import { SITE_URL } from '../config/site';
+import { innerPageSchema } from '../utils/schema';
 import { gsap } from 'gsap';
 import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -69,6 +71,15 @@ export default function Contact() {
         title={t('contact.metaTitle')}
         description={t('contact.metaDescription')}
         path="/contact"
+        jsonLd={innerPageSchema({
+          title: `${t('contact.metaTitle')} | XR Services`,
+          description: t('contact.metaDescription'),
+          path: '/contact',
+          breadcrumbs: [
+            { name: t('nav.home'), url: SITE_URL },
+            { name: t('contact.metaTitle'), url: `${SITE_URL}/contact` },
+          ],
+        })}
       />
 
       <div ref={ref}>

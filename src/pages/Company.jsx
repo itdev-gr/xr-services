@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
+import { SITE_URL } from '../config/site';
+import { innerPageSchema } from '../utils/schema';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft } from 'lucide-react';
@@ -85,6 +87,15 @@ export default function Company() {
         title={t('companyPage.metaTitle')}
         description={t('companyPage.metaDescription')}
         path="/company"
+        jsonLd={innerPageSchema({
+          title: `${t('companyPage.metaTitle')} | XR Services`,
+          description: t('companyPage.metaDescription'),
+          path: '/company',
+          breadcrumbs: [
+            { name: t('nav.home'), url: SITE_URL },
+            { name: t('nav.company'), url: `${SITE_URL}/company` },
+          ],
+        })}
       />
 
       <div ref={ref}>
