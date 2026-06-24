@@ -61,15 +61,15 @@ export default function AboutSection() {
             <div className="reveal-item w-12 h-1 bg-[#c8102e] rounded mb-5" />
 
             {/* Office photo */}
-            <div className="reveal-item relative w-full mb-5 lg:mb-6 rounded-xl lg:rounded-2xl overflow-hidden border border-gray-100/80 shadow-[0_12px_32px_rgba(15,28,63,0.07)] lg:shadow-[0_16px_48px_rgba(15,28,63,0.08)]">
+            <div className="reveal-item relative w-full mb-5 lg:mb-6 rounded-xl lg:rounded-2xl overflow-hidden border border-gray-100/80 shadow-[0_12px_32px_rgba(15,28,63,0.07)] lg:shadow-[0_16px_48px_rgba(15,28,63,0.08)] aspect-[4/3]">
               <OptimizedImage
                 src="/xrs-etaireia.png"
                 alt={t('about.imageAlt')}
-                className="w-full aspect-[4/3] object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
                 width={1200}
                 height={900}
               />
-              <div className="h-1 bg-gradient-to-r from-[#0f1c3f] via-[#c8102e] to-[#0f1c3f]" />
+              <div className="absolute inset-x-0 bottom-0 z-10 h-1 bg-gradient-to-r from-[#0f1c3f] via-[#c8102e] to-[#0f1c3f]" />
             </div>
 
             <div className="reveal-item space-y-3 lg:space-y-4 mb-5 lg:mb-6">

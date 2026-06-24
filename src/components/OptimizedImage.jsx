@@ -7,17 +7,19 @@ export default function OptimizedImage({
   alt,
   className,
   priority = false,
-  mobileSrc,
+  mobileSrc = false,
   width,
   height,
   ...props
 }) {
   const webpSrc = toWebp(src);
-  const webpMobile = mobileSrc ?? src.replace(/\.(png|jpe?g)$/i, '-mobile.webp');
+  const webpMobile = typeof mobileSrc === 'string'
+    ? mobileSrc
+    : src.replace(/\.(png|jpe?g)$/i, '-mobile.webp');
 
   return (
-    <picture>
-      {mobileSrc !== false && (
+    <picture className="block w-full h-full">
+      {typeof mobileSrc === 'string' && (
         <source media="(max-width: 768px)" srcSet={webpMobile} type="image/webp" />
       )}
       <source srcSet={webpSrc} type="image/webp" />

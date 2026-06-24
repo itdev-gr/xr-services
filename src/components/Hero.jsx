@@ -25,6 +25,7 @@ export default function Hero() {
           alt={t('hero.imageAlt')}
           className="w-full h-full object-cover"
           style={{ objectPosition: '65% center' }}
+          mobileSrc="/herosection-mobile.webp"
           priority
           width={1672}
           height={941}
