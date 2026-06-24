@@ -112,6 +112,10 @@ async function prerenderRoute(page, baseUrl, route) {
   await page.goto(url, { waitUntil: 'networkidle0', timeout: 60000 });
   await waitForRouteReady(page, route);
 
+  await page.evaluate(() => {
+    document.getElementById('xr-cookie-banner')?.remove();
+  });
+
   const html = await page.content();
   const target = outputPath(route);
   mkdirSync(dirname(target), { recursive: true });

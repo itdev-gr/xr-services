@@ -32,11 +32,14 @@ function acceptCookies(event) {
   accepting = true;
 
   saveAnalyticsConsent();
-
-  const bar = document.getElementById('xr-cookie-banner');
-  if (bar) bar.remove();
-
+  document.getElementById('xr-cookie-banner')?.remove();
   void grantAnalyticsConsent();
+}
+
+function bindAcceptButton(button) {
+  if (!button || button.dataset.bound === 'true') return;
+  button.dataset.bound = 'true';
+  button.addEventListener('click', acceptCookies, { capture: true });
 }
 
 function buildBanner() {
@@ -54,23 +57,35 @@ function buildBanner() {
           ${copy.message}
           <a class="xr-cookie-banner__link" href="/cookies">${copy.learnMore}</a>
         </p>
-        <button type="button" class="xr-cookie-banner__button" data-cookie-accept>${copy.accept}</button>
+        <button
+          type="button"
+          class="xr-cookie-banner__button"
+          data-cookie-accept
+          onclick="window.__xrAcceptCookies && window.__xrAcceptCookies(event)"
+        >${copy.accept}</button>
       </div>
     </div>
   `;
 
-  const button = bar.querySelector('[data-cookie-accept]');
-  button.addEventListener('click', acceptCookies, { capture: true });
-  button.addEventListener('touchend', acceptCookies, { capture: true, passive: false });
-
+  bindAcceptButton(bar.querySelector('[data-cookie-accept]'));
   return bar;
 }
 
 export function initCookieBanner() {
   if (typeof document === 'undefined') return;
-  if (hasAnalyticsConsent()) return;
-  if (document.getElementById('xr-cookie-banner')) return;
 
   window.__xrAcceptCookies = acceptCookies;
-  document.body.appendChild(buildBanner());
+
+  if (hasAnalyticsConsent()) {
+    document.getElementById('xr-cookie-banner')?.remove();
+    return;
+  }
+
+  let bar = document.getElementById('xr-cookie-banner');
+  if (!bar) {
+    document.body.appendChild(buildBanner());
+    return;
+  }
+
+  bindAcceptButton(bar.querySelector('[data-cookie-accept]'));
 }
