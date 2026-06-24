@@ -2,12 +2,35 @@ export const COOKIE_CONSENT_KEY = 'xr_cookie_consent';
 export const GA_MEASUREMENT_ID = 'G-W4379VWJ0B';
 
 let analyticsInitPromise = null;
+let consentGrantedInMemory = false;
 
-export function hasAnalyticsConsent() {
+function readConsent(storage) {
   try {
-    return localStorage.getItem(COOKIE_CONSENT_KEY) === 'granted';
+    return storage.getItem(COOKIE_CONSENT_KEY) === 'granted';
   } catch {
     return false;
+  }
+}
+
+export function hasAnalyticsConsent() {
+  if (consentGrantedInMemory) return true;
+  if (typeof window === 'undefined') return false;
+  return readConsent(localStorage) || readConsent(sessionStorage);
+}
+
+export function saveAnalyticsConsent() {
+  consentGrantedInMemory = true;
+
+  try {
+    localStorage.setItem(COOKIE_CONSENT_KEY, 'granted');
+  } catch {
+    // ignore storage errors
+  }
+
+  try {
+    sessionStorage.setItem(COOKIE_CONSENT_KEY, 'granted');
+  } catch {
+    // ignore storage errors
   }
 }
 
@@ -33,12 +56,7 @@ export function initAnalytics() {
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
 
-    let cookieConsent = null;
-    try {
-      cookieConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
-    } catch {
-      // ignore
-    }
+    const cookieConsent = hasAnalyticsConsent() ? 'granted' : null;
 
     window.gtag('js', new Date());
     window.gtag('consent', 'default', {
@@ -61,11 +79,7 @@ export function initAnalytics() {
 }
 
 export async function grantAnalyticsConsent() {
-  try {
-    localStorage.setItem(COOKIE_CONSENT_KEY, 'granted');
-  } catch {
-    // ignore storage errors
-  }
+  saveAnalyticsConsent();
 
   void initAnalytics().then(() => {
     if (typeof window.gtag === 'function') {

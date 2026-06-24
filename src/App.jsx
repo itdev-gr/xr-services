@@ -88,9 +88,9 @@ export default function App() {
             </Routes>
           </main>
           <Footer />
-          <CookieBanner />
-          <DeferredWidgets />
         </div>
+        <CookieBanner />
+        <DeferredWidgets />
       </BrowserRouter>
     </HelmetProvider>
   );
