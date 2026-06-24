@@ -9,6 +9,7 @@ import {
   GBP_MAP_URL,
   GEO_COORDINATES,
   SOCIAL_PROFILES,
+  DEFAULT_OG_IMAGE,
 } from '../config/site';
 
 const ORG_ID = `${SITE_URL}/#organization`;
@@ -95,7 +96,7 @@ export function serviceSchema({ name, description, url, image }) {
     name,
     description,
     url,
-    image: image ? `${SITE_URL}${image}` : `${SITE_URL}/XRS-MAIN-9.svg`,
+    image: image ? `${SITE_URL}${image}` : `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     provider: { '@id': ORG_ID },
     areaServed: {
       '@type': 'Country',
