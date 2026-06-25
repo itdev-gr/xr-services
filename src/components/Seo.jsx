@@ -37,9 +37,9 @@ export default function Seo({
       <meta property="og:image" content={ogImageUrl} />
       {isDefaultOgImage && (
         <>
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:image:type" content="image/png" />
+          <meta property="og:image:width" content="1024" />
+          <meta property="og:image:height" content="631" />
+          <meta property="og:image:type" content="image/webp" />
         </>
       )}
       <meta name="twitter:card" content="summary_large_image" />

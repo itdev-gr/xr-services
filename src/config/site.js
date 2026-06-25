@@ -4,7 +4,7 @@ import { SECTOR_SLUGS } from './sectors';
 export const SITE_URL = 'https://xr-services.gr';
 export const SITE_NAME = 'XR Services';
 export const BUSINESS_NAME = 'XR Services Χρονόπουλος & Συνεργάτες';
-export const DEFAULT_OG_IMAGE = '/og-default.png';
+export const DEFAULT_OG_IMAGE = '/XRS-MAIN-8.webp';
 export const BUSINESS_IMAGE = '/herosection.webp';
 export const BUSINESS_PHONE = '+302103421331';
 export const BUSINESS_PHONE_SECONDARY = '+302103421862';
