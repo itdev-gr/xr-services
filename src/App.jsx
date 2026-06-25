@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import AnalyticsRouteTracker from './components/AnalyticsRouteTracker';
+import NotificationPrompt from './components/NotificationPrompt';
 import { initAnalytics } from './utils/analytics';
 
 const Blog = lazy(() => import('./pages/Blog'));
@@ -15,7 +16,6 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Service = lazy(() => import('./pages/Service'));
 const Legal = lazy(() => import('./pages/Legal'));
 const Sector = lazy(() => import('./pages/Sector'));
-const NotificationPrompt = lazy(() => import('./components/NotificationPrompt'));
 
 function RouteFallback() {
   return (
@@ -47,11 +47,7 @@ function DeferredWidgets() {
 
   if (!ready) return null;
 
-  return (
-    <Suspense fallback={null}>
-      <NotificationPrompt />
-    </Suspense>
-  );
+  return <NotificationPrompt />;
 }
 
 export default function App() {

@@ -114,6 +114,7 @@ async function prerenderRoute(page, baseUrl, route) {
 
   await page.evaluate(() => {
     document.getElementById('xr-cookie-banner')?.remove();
+    document.getElementById('xr-notification-prompt')?.remove();
   });
 
   const html = await page.content();

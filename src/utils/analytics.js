@@ -32,6 +32,10 @@ export function saveAnalyticsConsent() {
   } catch {
     // ignore storage errors
   }
+
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('xr:cookie-consent'));
+  }
 }
 
 function loadGtagScript() {
