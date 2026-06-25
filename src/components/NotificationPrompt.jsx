@@ -6,7 +6,7 @@ import { hasAnalyticsConsent } from '../utils/analytics';
 
 const STORAGE_KEY = 'xr-notification-prompt';
 const DISMISS_DAYS = 7;
-const SHOW_DELAY_MS = 4000;
+const SHOW_DELAY_MS = 2000;
 
 function getStoredState() {
   try {
