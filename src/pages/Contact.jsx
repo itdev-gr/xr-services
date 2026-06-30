@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
@@ -8,27 +8,35 @@ import { gsap } from 'gsap';
 import { Phone, Mail, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLabels } from '../hooks/useLabels';
 
-export default function Contact() {
+const INPUT_BASE_CLASS =
+  'w-full border border-gray-300 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:border-[#c8102e] transition-colors bg-white';
+
+function Field({ id, label, required, error, children }) {
+  return (
+    <div>
+      <label htmlFor={id} className="block text-sm font-semibold text-[#0f1c3f] mb-1.5">
+        {label} {required && <span className="text-[#c8102e]">*</span>}
+      </label>
+      {children}
+      {error && (
+        <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+          <AlertCircle size={11} />{error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function ContactForm() {
   const { t } = useTranslation();
   const { tu } = useLabels();
-  const ref = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const ctx = gsap.context(() => {
-      gsap.from(ref.current.querySelectorAll('.c-animate'), {
-        y: 25,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: 'power3.out',
-        delay: 0.1,
-      });
-    }, ref);
-    return () => ctx.revert();
+  const updateField = useCallback((field, value) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => (prev[field] ? { ...prev, [field]: '' } : prev));
   }, []);
 
   const validate = () => {
@@ -50,22 +58,133 @@ export default function Contact() {
     setForm({ name: '', email: '', phone: '', subject: '', message: '' });
   };
 
-  const Field = ({ id, label, required, children }) => (
-    <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-[#0f1c3f] mb-1.5">
-        {label} {required && <span className="text-[#c8102e]">*</span>}
-      </label>
-      {children}
-      {errors[id] && (
-        <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
-          <AlertCircle size={11} />{errors[id]}
-        </p>
-      )}
-    </div>
+  const inputClass = (id) =>
+    `${INPUT_BASE_CLASS} ${errors[id] ? 'border-red-400' : 'border-gray-300'}`;
+
+  if (status === 'success') {
+    return (
+      <div className="c-animate flex flex-col items-center gap-4 py-16 text-center bg-green-50 rounded-2xl border border-green-100">
+        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+          <CheckCircle size={32} className="text-green-600" />
+        </div>
+        <p className="font-bold text-[#0f1c3f] text-lg">{t('contact.form.success')}</p>
+        <button onClick={() => setStatus('idle')} className="text-[#c8102e] text-sm font-semibold hover:underline">
+          Αποστολή νέου μηνύματος
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate className="c-animate space-y-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field id="name" label={t('contact.form.name')} required error={errors.name}>
+          <input
+            id="name"
+            type="text"
+            value={form.name}
+            onChange={(e) => updateField('name', e.target.value)}
+            className={inputClass('name')}
+            placeholder="Το ονοματεπώνυμό σας"
+          />
+        </Field>
+        <Field id="email" label={t('contact.form.email')} required error={errors.email}>
+          <input
+            id="email"
+            type="email"
+            value={form.email}
+            onChange={(e) => updateField('email', e.target.value)}
+            className={inputClass('email')}
+            placeholder="email@example.com"
+          />
+        </Field>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <Field id="phone" label={t('contact.form.phone')} error={errors.phone}>
+          <input
+            id="phone"
+            type="tel"
+            value={form.phone}
+            onChange={(e) => updateField('phone', e.target.value)}
+            className={inputClass('phone')}
+            placeholder="210 000 0000"
+          />
+        </Field>
+        <Field id="subject" label="Θέμα" error={errors.subject}>
+          <input
+            id="subject"
+            type="text"
+            value={form.subject}
+            onChange={(e) => updateField('subject', e.target.value)}
+            className={inputClass('subject')}
+            placeholder="Θέμα μηνύματος"
+          />
+        </Field>
+      </div>
+
+      <Field id="message" label={t('contact.form.message')} required error={errors.message}>
+        <textarea
+          id="message"
+          value={form.message}
+          onChange={(e) => updateField('message', e.target.value)}
+          rows={6}
+          className={inputClass('message') + ' resize-none'}
+          placeholder="Γράψτε το μήνυμά σας..."
+        />
+      </Field>
+
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="flex items-center justify-center gap-2 bg-[#c8102e] text-white font-bold py-4 px-10 rounded-xl hover:bg-[#a00d24] disabled:opacity-60 transition-all duration-200 uppercase text-sm tracking-wider"
+      >
+        {status === 'loading' ? (
+          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+        ) : (
+          <>
+            {tu('contact.form.submit')}
+            <Send size={15} />
+          </>
+        )}
+      </button>
+    </form>
+  );
+}
+
+export default function Contact() {
+  const { t } = useTranslation();
+  const { tu } = useLabels();
+  const ref = useRef(null);
+
+  const jsonLd = useMemo(
+    () =>
+      innerPageSchema({
+        title: `${t('contact.metaTitle')} | XR Services`,
+        description: t('contact.metaDescription'),
+        path: '/contact',
+        breadcrumbs: [
+          { name: t('nav.home'), url: SITE_URL },
+          { name: t('contact.metaTitle'), url: `${SITE_URL}/contact` },
+        ],
+      }),
+    [t],
   );
 
-  const inputClass = (id) =>
-    `w-full border ${errors[id] ? 'border-red-400' : 'border-gray-300'} rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:border-[#c8102e] transition-colors bg-white`;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const ctx = gsap.context(() => {
+      gsap.from(ref.current.querySelectorAll('.c-animate'), {
+        y: 25,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: 'power3.out',
+        delay: 0.1,
+      });
+    }, ref);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -73,15 +192,7 @@ export default function Contact() {
         title={t('contact.metaTitle')}
         description={t('contact.metaDescription')}
         path="/contact"
-        jsonLd={innerPageSchema({
-          title: `${t('contact.metaTitle')} | XR Services`,
-          description: t('contact.metaDescription'),
-          path: '/contact',
-          breadcrumbs: [
-            { name: t('nav.home'), url: SITE_URL },
-            { name: t('contact.metaTitle'), url: `${SITE_URL}/contact` },
-          ],
-        })}
+        jsonLd={jsonLd}
       />
 
       <div ref={ref}>
@@ -173,91 +284,7 @@ export default function Contact() {
                   <div className="w-10 h-1 bg-[#c8102e] rounded mb-8" />
                 </div>
 
-                {status === 'success' ? (
-                  <div className="c-animate flex flex-col items-center gap-4 py-16 text-center bg-green-50 rounded-2xl border border-green-100">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle size={32} className="text-green-600" />
-                    </div>
-                    <p className="font-bold text-[#0f1c3f] text-lg">{t('contact.form.success')}</p>
-                    <button onClick={() => setStatus('idle')} className="text-[#c8102e] text-sm font-semibold hover:underline">
-                      Αποστολή νέου μηνύματος
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} noValidate className="c-animate space-y-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <Field id="name" label={t('contact.form.name')} required>
-                        <input
-                          id="name"
-                          type="text"
-                          value={form.name}
-                          onChange={(e) => { setForm(p => ({ ...p, name: e.target.value })); setErrors(p => ({ ...p, name: '' })); }}
-                          className={inputClass('name')}
-                          placeholder="Το ονοματεπώνυμό σας"
-                        />
-                      </Field>
-                      <Field id="email" label={t('contact.form.email')} required>
-                        <input
-                          id="email"
-                          type="email"
-                          value={form.email}
-                          onChange={(e) => { setForm(p => ({ ...p, email: e.target.value })); setErrors(p => ({ ...p, email: '' })); }}
-                          className={inputClass('email')}
-                          placeholder="email@example.com"
-                        />
-                      </Field>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <Field id="phone" label={t('contact.form.phone')}>
-                        <input
-                          id="phone"
-                          type="tel"
-                          value={form.phone}
-                          onChange={(e) => setForm(p => ({ ...p, phone: e.target.value }))}
-                          className={inputClass('phone')}
-                          placeholder="210 000 0000"
-                        />
-                      </Field>
-                      <Field id="subject" label="Θέμα">
-                        <input
-                          id="subject"
-                          type="text"
-                          value={form.subject}
-                          onChange={(e) => setForm(p => ({ ...p, subject: e.target.value }))}
-                          className={inputClass('subject')}
-                          placeholder="Θέμα μηνύματος"
-                        />
-                      </Field>
-                    </div>
-
-                    <Field id="message" label={t('contact.form.message')} required>
-                      <textarea
-                        id="message"
-                        value={form.message}
-                        onChange={(e) => { setForm(p => ({ ...p, message: e.target.value })); setErrors(p => ({ ...p, message: '' })); }}
-                        rows={6}
-                        className={inputClass('message') + ' resize-none'}
-                        placeholder="Γράψτε το μήνυμά σας..."
-                      />
-                    </Field>
-
-                    <button
-                      type="submit"
-                      disabled={status === 'loading'}
-                      className="flex items-center justify-center gap-2 bg-[#c8102e] text-white font-bold py-4 px-10 rounded-xl hover:bg-[#a00d24] disabled:opacity-60 transition-all duration-200 uppercase text-sm tracking-wider"
-                    >
-                      {status === 'loading' ? (
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      ) : (
-                        <>
-                          {tu('contact.form.submit')}
-                          <Send size={15} />
-                        </>
-                      )}
-                    </button>
-                  </form>
-                )}
+                <ContactForm />
               </div>
             </div>
           </div>
