@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLabels } from '../hooks/useLabels';
@@ -11,6 +11,11 @@ export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('idle');
   const [errors, setErrors] = useState({});
+
+  const updateField = useCallback((field, value) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => (prev[field] ? { ...prev, [field]: '' } : prev));
+  }, []);
 
   const validate = () => {
     const errs = {};
@@ -75,7 +80,7 @@ export default function ContactSection() {
                     <input
                       type="text"
                       value={form.name}
-                      onChange={(e) => { setForm(p => ({ ...p, name: e.target.value })); setErrors(p => ({ ...p, name: '' })); }}
+                      onChange={(e) => updateField('name', e.target.value)}
                       className={inputClass('name')}
                       placeholder="Ονοματεπώνυμο"
                     />
@@ -90,7 +95,7 @@ export default function ContactSection() {
                     <input
                       type="email"
                       value={form.email}
-                      onChange={(e) => { setForm(p => ({ ...p, email: e.target.value })); setErrors(p => ({ ...p, email: '' })); }}
+                      onChange={(e) => updateField('email', e.target.value)}
                       className={inputClass('email')}
                       placeholder="email@example.com"
                     />
@@ -106,7 +111,7 @@ export default function ContactSection() {
                   <input
                     type="tel"
                     value={form.phone}
-                    onChange={(e) => setForm(p => ({ ...p, phone: e.target.value }))}
+                    onChange={(e) => updateField('phone', e.target.value)}
                     className={inputClass('phone')}
                     placeholder="210 000 0000"
                   />
@@ -119,7 +124,7 @@ export default function ContactSection() {
                   </label>
                   <textarea
                     value={form.message}
-                    onChange={(e) => { setForm(p => ({ ...p, message: e.target.value })); setErrors(p => ({ ...p, message: '' })); }}
+                    onChange={(e) => updateField('message', e.target.value)}
                     rows={5}
                     className={inputClass('message') + ' resize-none'}
                     placeholder="Πώς μπορούμε να σας βοηθήσουμε;"
